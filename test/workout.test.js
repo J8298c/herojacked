@@ -44,6 +44,23 @@ describe('Workouts', () => {
           res.body.errors.sets.should.have.property('kind').eql('required');
         });
     });
+    it('should post a workout when all fields are entered', (done) => {
+      const workout = {
+        name: 'Bloody Bag Pipes',
+        reps: 200,
+        sets: 3,
+      };
+
+      chai.request(app)
+        .post('/workouts/create')
+        .send(workout)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.be.a('array');
+          console.log(res);
+          done();
+        });
+    });
   });
 });
 
