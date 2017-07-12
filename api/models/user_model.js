@@ -16,9 +16,14 @@ const userSchema = new Schema({
   },
 });
 
-userSchema.methods.generateHash = (password) => bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+userSchema.methods.generateHash = function (password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
 
-userSchema.methods.validPassword = (password) => bcrypt.compareSync(password, this.password);
+// checking if password is valid
+userSchema.methods.validPassword = function (password) {
+  return bcrypt.compareSync(password, this.password);
+};
 
 userSchema.plugin(uniqueValidator);
 

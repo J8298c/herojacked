@@ -6,11 +6,6 @@ const passport = require('passport');
 const port = process.env.PORT || 8080;
 
 const app = express();
-const workoutRoute = require('./api/routes/workouts_routes');
-const Workouts = require('./api/models/workout_model');
-const userRoutes = require('./api/routes/workouts_routes');
-const User = require('./api/models/user_model');
-
 require('./api/config/passport')(passport);
 
 app.use(bodyParser.json());
@@ -27,8 +22,10 @@ app.use(passport.session());
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/thunderhammer');
 
-workoutRoute(app, Workouts);
-userRoutes(app, passport, User);
+const Workouts = require('./api/models/workout_model');
+const User = require('./api/models/user_model');
+require('./api/routes/workouts_routes')(app, Workouts);
+require('./api/routes/user_routes')(app, passport, User);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);

@@ -1,5 +1,6 @@
-let LocalStrategy = require('passport-local').Strategy;
-let User = require('./models/usermodel');
+const LocalStrategy = require('passport-local').Strategy;
+
+const User = require('../models/user_model');
 
 module.exports = function (passport) {
   // used to serialize the user for the session
@@ -59,7 +60,6 @@ module.exports = function (passport) {
   },
     ((req, email, password, done) => {
       const displayname = req.body.displayname;
-      console.log(req.body.displayname, 'the displayname')
       if (email)
         email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
 
