@@ -10,7 +10,7 @@ module.exports = (app, Workouts) => {
         }
       });
   });
-    
+
   app.post('/workouts/create', (req, res, next) => {
     const newWorkout = new Workouts({
       name: req.body.name,
@@ -29,6 +29,18 @@ module.exports = (app, Workouts) => {
               res.json(workouts);
             }
           });
+      }
+    });
+  });
+
+  app.get('/workouts/workout/:name', (req, res) => {
+    Workouts.findOne({
+      name: req.params.name,
+    }, (err, workout) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(workout);
       }
     });
   });
