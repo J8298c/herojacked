@@ -27,5 +27,23 @@ describe('Workouts', () => {
         });
     });
   });
+  describe('/POST workout', () => {
+    it('should not post a workout missing required fields', () => {
+      const workout = {
+        name: 'Bloddy Bag Pipes',
+        reps: 2000,
+      };
+      chai.request(app)
+        .post('/workouts/create')
+        .send(workout)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.should.be.a('object');
+          res.body.should.have.property('errors');
+          res.body.errors.should.have.property('sets');
+          res.body.errors.sets.should.have.property('kind').eql('required');
+        });
+    });
+  });
 });
 
