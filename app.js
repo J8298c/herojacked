@@ -20,7 +20,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/thunderhammer');
+
+const DB = require('./api/config/db');
+
+if (process.env.NODE_ENV === 'test') {
+  mongoose.connect(DB.testDB);
+} else {
+  mongoose.connect(DB.dbUrl);
+}
 
 const Workouts = require('./api/models/workout_model');
 const User = require('./api/models/user_model');
@@ -30,3 +37,5 @@ require('./api/routes/user_routes')(app, passport, User);
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
 });
+
+module.exports = app;
