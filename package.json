@@ -1,0 +1,32 @@
+{
+  "name": "herojacked",
+  "version": "1.0.0",
+  "description": "mern apollo app react node mongo",
+  "main": "index.js",
+  "author": "Julio Mojica",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mongodb": "^2.2.30",
+    "mongoose": "^4.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.1.0",
+    "chai-http": "^3.0.0",
+    "concurrently": "^3.5.0",
+    "eslint-config-equimper": "^2.2.1",
+    "faker": "^4.1.0",
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
