@@ -29,7 +29,8 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "concurrently \"node app.js\" \"cd client && npm start\"",
+    "dev": "concurrently \"nodemon app.js\" \"cd client && npm start\"",
     "test": "mocha"
   }
 }
