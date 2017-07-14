@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Workout from './Workout';
+import Buttons from '../Button';
 
 class Workouts extends Component {
   render(props){
@@ -14,6 +15,7 @@ class Workouts extends Component {
     return (
       <div>
         {workoutList}
+        <Buttons label="test" />
       </div>
     );
   }
