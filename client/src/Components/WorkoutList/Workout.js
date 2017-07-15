@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const Workout = (props) => (
-    <div>
-        <h1>{props.name}</h1>
-        <ul>
-            <li>Reps: {props.reps}</li>
-            <li>Sets: {props.sets}</li>
-        </ul>
-    </div>
-);
+class Workout extends Component {
+  render(props) {
+    console.log('the props', this.props);
+    return (
+            <h1>The Workout Component</h1>
+    );
+  }
+}
 export default Workout;
