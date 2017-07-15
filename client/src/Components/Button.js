@@ -1,10 +1,8 @@
 import React from 'react';
-import Button from 'muicss/lib/react/button';
 
-const AppButton = (props) => (
-    <Button color={props.color} className={props.className} onClick={props.onClick}>
+const Button = (props) => (
+    <button className={`mdl-button mdl-js-button mdl-button--raised ${props.className}`} onClick={props.onClick}>
         {props.text}
-    </Button>
+    </button>
 );
-
-export default AppButton;
+export default Button;

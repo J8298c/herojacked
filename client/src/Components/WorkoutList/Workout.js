@@ -1,10 +1,14 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class Workout extends Component {
   render(props) {
-    console.log('the props', this.props);
+    const workout = this.props.params.workoutid;
+    /*
+      fetch from db using the workout var
+      then for loop for inputs to match how many sets for user to log wights
+    */
     return (
-            <h1>The Workout Component</h1>
+            <h1>{workout}</h1>
     );
   }
 }
