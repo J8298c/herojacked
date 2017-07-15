@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import WorkoutContainer from './Components/Workouts/WorkoutContainer';
+import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<WorkoutContainer />, document.getElementById('root'));
+ReactDOM.render(Routes, document.getElementById('root'));
 registerServiceWorker();
