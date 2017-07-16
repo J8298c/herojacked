@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
 import WorkoutListContainer from './Components/WorkoutList/WorkoutListContainer';
-import LandingPage from './Components/LandingPage';
+import LandingPage from './Components/LandingPage/LandingPage';
 import Workout from './Components/WorkoutList/Workout';
 import LoginForm from './Components/Authentication/LoginForm';
 import SignupForm from './Components/Authentication/SignupForm';
