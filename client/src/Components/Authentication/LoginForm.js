@@ -16,24 +16,26 @@ class LoginForm extends Component {
     e.preventDefault();
     console.log('clicked');
     console.log(this.state, 'the state')
+    const{email, password} = this.state;
+    console.log(email, 'email');
   }
   render() {
     return (
         <div className="loginpage">
           <form>
             <h1>Apollo</h1>
-              <Input 
-                type="text" placeholder="Email" 
-                onChange={(e) => {this.setState({ email: e.target.value })}} className="login-inputs" 
+              <Input
+                type="text" placeholder="Email"
+                onChange={event=>this.setState({email: event.target.value})} className="login-inputs"
               />
-              <Input 
-                type="password" placeholder="Password" 
-                onChange={(e) => {this.setState({ password: e.target.value })}} className="login-inputs" 
+              <Input
+                type="password" placeholder="Password"
+                onChange={event => this.setState({password: event.target.value})} className="login-inputs"
               />
               <Button className='loginbutton app-button' text="submit" onClick={this.onFormSubmit} />
             </form>
         </div>
-          
+
     );
   }
 }

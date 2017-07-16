@@ -7,8 +7,8 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: null,
-      password: null,
+      email: '',
+      password: '',
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -20,13 +20,13 @@ class SignupForm extends Component {
   render() {
     return (
           <form>
-            <Input 
-              type="text" placeholder="Email" 
-              onChange={(e) => {this.setState({ email: e.target.value })}} className="login" 
+            <Input
+              type="text" placeholder="Email"
+              onChange={event => this.setState({email: event.target.value})} className="login"
             />
-            <Input 
-              type="password" placeholder="Password" 
-              onChange={(e) => {this.setState({ password: e.target.value })}} className="login" 
+            <Input
+              type="password" placeholder="Password"
+              onChange={event => this.setState({password: event.target.value})} className="login"
             />
             <Button className='appbutton' text="submit" onClick={this.onFormSubmit} />
           </form>
