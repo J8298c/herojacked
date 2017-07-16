@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
 import Button from '../Button';
+import Input from '../Input';
+import './auth.css';
 
 class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      email: null,
+      password: null,
     };
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
   onFormSubmit(e){
     e.preventDefault();
     console.log('clicked');
+    console.log(this.state, 'the state')
   }
   render() {
-      return(
+    return (
+        <div className="loginpage">
           <form>
-            <input type="text" placeholder="Enter your email" className="formInput" />
-            <input type="text" placeholder="Enter your email" className="formInput" />
-            <Button className='appbutton' text="submit" onClick={this.onFormSubmit} />
-          </form>
-      );
+            <h1>Apollo</h1>
+              <Input 
+                type="text" placeholder="Email" 
+                onChange={(e) => {this.setState({ email: e.target.value })}} className="login-inputs" 
+              />
+              <Input 
+                type="password" placeholder="Password" 
+                onChange={(e) => {this.setState({ password: e.target.value })}} className="login-inputs" 
+              />
+              <Button className='loginbutton app-button' text="submit" onClick={this.onFormSubmit} />
+            </form>
+        </div>
+          
+    );
   }
 }
 
