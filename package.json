@@ -30,7 +30,7 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"node app.js\" \"cd client && npm start\"",
     "dev": "concurrently \"nodemon app.js\" \"cd client && npm start\"",
     "test": "mocha",
     "client": "cd client && npm start",
