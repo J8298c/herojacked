@@ -5,18 +5,7 @@ import { fetchAWorkout } from '../../actions/index';
 import store from '../../store';
 
 class Workout extends Component {
-  componentDidMount() {
-    console.log(this.props, 'the props');
-    const workoutname = this.props.params.workoutid;
-    console.log(workoutname, 'should be the props params');
-    fetch(`/workouts/workout/${workoutname}`)
-    .then((response) => response.json())
-    .then(json => {
-      this.props.fetchAWorkout(json);
-    }).catch(err => {
-      console.error(err);
-    });
-  }
+
   render() {
     const workout = this.props.params.workout;
     return (
