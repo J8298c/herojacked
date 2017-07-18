@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchAWorkout } from '../../actions/index';
+import store from '../../store';
 
 class Workout extends Component {
-  render(props) {
-    const workout = this.props.params.workoutid;
-    /*
-      fetch from db using the workout var
-      then for loop for inputs to match how many sets for user to log wights
-    */
+  componentDidMount() {
+    console.log(this.props, 'the props');
+    const workoutname = this.props.params.workoutid;
+    console.log(workoutname, 'should be the props params');
+    fetch(`/workouts/workout/${workoutname}`)
+    .then((response) => response.json())
+    .then(json => {
+      this.props.fetchAWorkout(json);
+    }).catch(err => {
+      console.error(err);
+    });
+  }
+  render() {
+    const workout = this.props.params.workout;
     return (
             <h1>{workout}</h1>
     );
   }
 }
-export default Workout;
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    state,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchAWorkout }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Workout);
