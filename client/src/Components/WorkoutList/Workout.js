@@ -4,10 +4,20 @@ import { bindActionCreators } from 'redux';
 import { fetchAWorkout } from '../../actions/index';
 import store from '../../store';
 
+let workoutObj;
 class Workout extends Component {
-
+  constructor(props) {
+    super(props);
+    console.log('the props to searcha name', this.props.params.workoutid);
+    fetch(`/workouts/workout/${this.props.params.workoutid}`)
+        .then((resp) => resp.json())
+        .then(json => {
+          console.log(json);
+        });
+  }
   render() {
-    const workout = this.props.params.workout;
+    console.log(workoutObj)
+    const workout = this.props.params.workoutid;
     return (
             <h1>{workout}</h1>
     );
