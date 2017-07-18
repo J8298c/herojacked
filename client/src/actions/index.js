@@ -6,3 +6,13 @@ export function fetchWorkouts(workouts) {
   };
   return action;
 }
+
+export function fetchingWorkouts() {
+  return (dispatch) => {
+    fetch('/workouts', { method: 'GET' })
+      .then((response) => response.json())
+      .then(json => {
+        dispatch(fetchWorkouts(json));
+      });
+  };
+}
