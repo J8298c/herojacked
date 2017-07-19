@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchAWorkout } from '../../actions/index';
-import store from '../../store';
+import { fetchingAWorkout } from '../../actions/index';
+import WorkoutCard from './WorkoutCard';
 
-let workoutObj;
 class Workout extends Component {
   constructor(props) {
     super(props);
     console.log('the props to searcha name', this.props.params.workoutid);
-    fetch(`/workouts/workout/${this.props.params.workoutid}`)
-        .then((resp) => resp.json())
-        .then(json => {
-          console.log(json);
-        });
+    this.props.fetchingAWorkout(this.props.params.workoutid);
   }
   render() {
-    console.log(workoutObj)
-    const workout = this.props.params.workoutid;
+    const { workouts } = this.props;
+    console.log(workouts, 'the workout var');
     return (
-            <h1>{workout}</h1>
+      <div>
+      <h1>trying</h1>
+      </div> 
     );
   }
 }
 function mapStateToProps(state) {
-  console.log(state);
+  const { workouts } = state;
   return {
-    state,
+    workouts,
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchAWorkout }, dispatch);
+  return bindActionCreators({ fetchingAWorkout }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Workout);
