@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchingAWorkout } from '../../actions/index';
-import WorkoutCard from './WorkoutCard';
 
 class Workout extends Component {
   constructor(props) {
@@ -12,10 +11,11 @@ class Workout extends Component {
   }
   render() {
     const { workouts } = this.props;
-    console.log(workouts, 'the workout var');
     return (
       <div>
-      <h1>trying</h1>
+      <h1>{workouts.name}</h1>
+      <p> Reps: {workouts.reps}</p>
+      <p> Sets: {workouts.sets}</p>
       </div> 
     );
   }
