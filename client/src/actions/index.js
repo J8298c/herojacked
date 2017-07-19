@@ -46,3 +46,18 @@ export function signupUser(email, password) {
   };
   return action;
 }
+
+export function signingUserIn(email, password) {
+  return (dispatch) => {
+    fetch('/signup', {method: 'POST',
+    body: {
+      email, password,
+    }})
+        .then((resp) => resp.json())
+        .then(json => {
+            console.log('the jsopn object', json);
+            dispatch(signupUser(json));
+        })
+        .catch(console.log('not working'));
+  }
+}

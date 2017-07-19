@@ -8,6 +8,7 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import Workout from './Components/WorkoutList/Workout';
 import LoginForm from './Components/Authentication/LoginForm';
 import SignupForm from './Components/Authentication/SignupForm';
+import Profile from './Components/User/Profile';
 
 const Routes = (
     <Provider store={store}>
@@ -17,6 +18,7 @@ const Routes = (
             <Route path="/workouts/:workoutid" component={Workout} />
             <Route path="/login" component={LoginForm} />
             <Route path="/signup" component={SignupForm} />
+            <Route path="/profile" component={Profile} />
         </Router>
     </Provider>
 );

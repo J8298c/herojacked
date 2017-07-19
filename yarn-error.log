@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn install
+  /usr/local/bin/node /usr/local/bin/yarn add connect-flash
 
 PATH: 
   /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
@@ -46,7 +46,7 @@ npm manifest:
       "nodemon": "^1.11.0"
     },
     "scripts": {
-      "start": "concurrently \"npm run server\" \"npm run client\"",
+      "start": "concurrently \"node app.js\" \"cd client && npm start\"",
       "dev": "concurrently \"nodemon app.js\" \"cd client && npm start\"",
       "test": "mocha",
       "client": "cd client && npm start",
@@ -3315,5 +3315,5 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/Users/rabbit/www/herojacked/node_modules/aproba'
+  Error: EACCES: permission denied, unlink '/Users/rabbit/www/herojacked/node_modules/.yarn-integrity'
       at Error (native)

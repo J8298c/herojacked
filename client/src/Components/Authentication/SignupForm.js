@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Button from '../Button';
 import Input from '../Input';
 import './auth.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { signingUserIn } from '../../actions/index';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -15,7 +18,9 @@ class SignupForm extends Component {
   onFormSubmit(e){
     e.preventDefault();
     console.log('clicked');
-    console.log(this.state, 'the state')
+    console.log(this.state, 'the state');
+    const { email, password } = this.state;
+    this.props.signingUserIn(email, password);
   }
   render() {
     return (
@@ -34,4 +39,14 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm;
+const mapStateToProps = (state) => {
+    return {
+        state,
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({signingUserIn}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);

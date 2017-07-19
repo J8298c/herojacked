@@ -6,7 +6,7 @@ let user = {
   password: '',
 };
 
-const userReducer = (state = store.getState(), action) => {
+const userReducer = (state = user, action) => {
   if (action.type === LOGIN_USER) {
     const { email, password } = action;
     user = {
