@@ -26,3 +26,23 @@ export function fetchingAWorkout(name) {
         });
   };
 }
+
+export const LOGIN_USER = 'LOGIN_USER';
+export function loginUser(email, password) {
+  const action = {
+    type: LOGIN_USER,
+    email,
+    password,
+  };
+  return action;
+}
+
+export const SIGNUP_USER = 'SIGNUP_USER';
+export function signupUser(email, password) {
+  const action = {
+    type: SIGNUP_USER,
+    email,
+    password,
+  };
+  return action;
+}

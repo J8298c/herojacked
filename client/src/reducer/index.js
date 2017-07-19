@@ -1,13 +1,10 @@
-import { FETCH_WORKOUTS } from '../actions/index.js';
-import store from '../store.js';
+import { combineReducers } from 'redux';
+import workoutReducer from './workout_reducer';
+import userReducer from './user_reducer';
 
-const workoutsReducer = (state = store.getState(), action) => {
-  if (action.type === FETCH_WORKOUTS) {
-    const { workouts } = action;
-    return {
-      workouts,
-    };
-  } 
-  return state;
-};
-export default workoutsReducer;
+const appReducer = combineReducers({
+  workoutReducer,
+  userReducer,
+});
+
+export default appReducer;

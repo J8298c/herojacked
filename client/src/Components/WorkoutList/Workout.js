@@ -6,7 +6,6 @@ import { fetchingAWorkout } from '../../actions/index';
 class Workout extends Component {
   constructor(props) {
     super(props);
-    console.log('the props to searcha name', this.props.params.workoutid);
     this.props.fetchingAWorkout(this.props.params.workoutid);
   }
   render() {
@@ -16,7 +15,7 @@ class Workout extends Component {
       <h1>{workouts.name}</h1>
       <p> Reps: {workouts.reps}</p>
       <p> Sets: {workouts.sets}</p>
-      </div> 
+      </div>
     );
   }
 }

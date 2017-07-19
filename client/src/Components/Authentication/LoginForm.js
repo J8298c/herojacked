@@ -14,10 +14,7 @@ class LoginForm extends Component {
   }
   onFormSubmit(e){
     e.preventDefault();
-    console.log('clicked');
-    console.log(this.state, 'the state')
-    const{email, password} = this.state;
-    console.log(email, 'email');
+    const { email, password } = this.state;
   }
   render() {
     return (
@@ -26,11 +23,11 @@ class LoginForm extends Component {
             <h1>Apollo</h1>
               <Input
                 type="text" placeholder="Email"
-                onChange={event=>this.setState({email: event.target.value})} className="login-inputs"
+                onChange={event => this.setState({ email: event.target.value })} className="login-inputs"
               />
               <Input
                 type="password" placeholder="Password"
-                onChange={event => this.setState({password: event.target.value})} className="login-inputs"
+                onChange={event => this.setState({ password: event.target.value })} className="login-inputs"
               />
               <Button className='loginbutton app-button' text="submit" onClick={this.onFormSubmit} />
             </form>
