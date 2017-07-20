@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import appReducer from './reducer/index';
+import workoutReducer from './reducer/workout_reducer';
 
 const initAppState = {
   user: {
@@ -10,6 +10,6 @@ const initAppState = {
   workouts: [],
 };
 
-const store = createStore(appReducer, initAppState, applyMiddleware(thunk));
+const store = createStore(workoutReducer, initAppState, applyMiddleware(thunk));
 
 export default store;
