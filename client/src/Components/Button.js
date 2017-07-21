@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
-const Button = (props) => (
-    <button className={`mdl-button mdl-js-button mdl-button--raised ${props.className}`} onClick={props.onClick}>
-        {props.text}
-    </button>
+const AppButton = (props) => (
+  <Button
+    content={props.content} className={props.className} onClick={props.onClick}
+  />
 );
-export default Button;
+export default AppButton;

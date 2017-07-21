@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Card } from 'semantic-ui-react';
 
 const WorkoutCard = (props) => (
-    <div className="workoutCard">
-        <Link to={`/workouts/${props.name}`}>
-            <h5>{props.name}</h5>
-        </Link>
-        <p>Sets: {props.sets}</p>
-        <p>Reps: {props.reps}</p>
-    </div>
+  <Card>
+    <Card.content>
+      <Card.header>{props.name}</Card.header>
+      <Card.description>{props.sets}</Card.description>
+      <Card.description>{props.reps}</Card.description>
+    </Card.content>
+  </Card>
 );
 export default WorkoutCard;

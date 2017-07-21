@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LandingPage from './Components/LandingPage/LandingPage';
 import './index.css';
-import Routes from './routes';
 import registerServiceWorker from './registerServiceWorker';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 
-ReactDOM.render(Routes, document.getElementById('root'));
+ReactDOM.render(<LandingPage />, document.getElementById('root'));
 registerServiceWorker();
-injectTapEventPlugin();

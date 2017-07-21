@@ -1,10 +1,17 @@
 import React from 'react';
-import './landingpage.css';
+import AppButton from '../Button';
+import './LandingPage.css';
 
 const LandingPage = () => (
-    <div className="landing-page">
-        <h1>Welcom to apollo</h1>
-        <a href="/login">Click here to login</a>
-    </div>
+  <div className="landingpage">
+    <h1>
+      Welcome to HeroJacked!
+    </h1>
+    <AppButton
+      className="startBtn" onClick={event => { event.preventDefault(); console.log('clicked'); }}
+      content="Start"
+    />
+  </div>
 );
+
 export default LandingPage;

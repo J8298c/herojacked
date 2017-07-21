@@ -1,33 +1,28 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchingWorkouts } from '../../actions/index';
-import store from '../../store';
-import WorkoutList from './WorkoutsList';
+import WorkoutCardList from './WorkoutCardList';
+
+const workouts = [];
 
 class WorkoutListContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = store.getState();
-    this.props.fetchingWorkouts();
+    fetch('/workouts', { method: 'GET' })
+      .then((resp) => resp.json())
+      .then(json => {
+        /*
+        need to add dispatch here
+        */
+        workouts.push(json);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   render() {
-    const { workouts } = this.props;
     return (
-        <div>
-          <WorkoutList workouts={workouts} />
-        </div>
+      <WorkoutCardList props={workouts} />
     );
   }
 }
 
-function mapStateToProps(state) {
-  const { workouts } = state;
-  return {
-    workouts,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchingWorkouts }, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(WorkoutListContainer);
+export default WorkoutListContainer;
