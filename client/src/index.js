@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from './Components/LandingPage/LandingPage';
+import WorkoutListContainer from './Components/WorkoutList/WorkoutListContainer';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<LandingPage />, document.getElementById('root'));
+ReactDOM.render(<WorkoutListContainer />, document.getElementById('root'));
 registerServiceWorker();

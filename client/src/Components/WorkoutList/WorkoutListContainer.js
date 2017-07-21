@@ -6,19 +6,20 @@ const workouts = [];
 class WorkoutListContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      workouts: [],
+    };
     fetch('/workouts', { method: 'GET' })
-      .then((resp) => resp.json())
-      .then(json => {
-        /*
-        need to add dispatch here
-        */
-        workouts.push(json);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((response) => {
+      return response
+    })
+    .then(response => response.json())
+    .then(json => {
+      workouts.push(json)
+    })
   }
   render() {
+    console.log(workouts, 'the workouts arr');
     return (
       <WorkoutCardList props={workouts} />
     );
