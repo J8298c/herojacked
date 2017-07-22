@@ -14,6 +14,7 @@ const WorkoutCard = (props) => {
   return (
     <Card
       header={props.name} meta={props.bodyPart} extra={workoutRatings}
+      image={require('../../images/weights-icon.svg')}
     />
   );
 };

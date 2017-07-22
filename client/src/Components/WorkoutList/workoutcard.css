@@ -5,3 +5,7 @@
   margin-left: 3%;
   border-color: #26D583;
 }
+.ui.card>.extra a:not(.ui), .ui.cards>.card>.extra a:not(.ui) {
+    color: #E4EBF1;
+    opacity: 1;
+}
