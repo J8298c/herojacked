@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
-/*
 import WorkoutCard from './WorkoutCard';
-*/
 
 class WorkoutList extends Component {
   render(props) {
-    console.log(this.props, 'the props');
+    const elWorkout = this.props.workouts;
+    const workoutcards = elWorkout.map((workout) => {
+      return (
+        <WorkoutCard
+          name={workout.name} key={workout._id}
+        />
+      );
+    });
     return (
-      <h1>
-        WorkoutList
-      </h1>
+      <div>
+        {workoutcards}
+      </div>
     );
   }
 }

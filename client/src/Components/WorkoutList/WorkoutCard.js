@@ -3,11 +3,14 @@ import { Card } from 'semantic-ui-react';
 
 const WorkoutCard = (props) => (
   <Card>
-    <Card.content>
-      <Card.header>{props.name}</Card.header>
-      <Card.description>{props.sets}</Card.description>
-      <Card.description>{props.reps}</Card.description>
-    </Card.content>
+    <Card.Content>
+      <Card.Header>
+        {props.name}
+      </Card.Header>
+      <Card.Meta>
+        Chest
+      </Card.Meta>
+    </Card.Content>
   </Card>
 );
 export default WorkoutCard;

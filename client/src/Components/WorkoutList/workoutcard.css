@@ -1,0 +1,7 @@
+.ui.card {
+  display: inline-block;
+  background-color: #26D583;
+  width: 28%;
+  margin-left: 3%;
+  border-color: #26D583;
+}
