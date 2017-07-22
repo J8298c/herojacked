@@ -14,7 +14,9 @@ const WorkoutSchema = new Schema({
   reps: {
     type: Number,
     required: true,
-  },    
+  },
+  bodyPart: String,
+  rating: Number,
 });
 
 const Workout = mongoose.model('Workout', WorkoutSchema);
