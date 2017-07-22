@@ -2,21 +2,29 @@
 	{
 		"name": "Bench Press",
 		"sets": 3,
-		"reps": 10
+		"reps": 10,
+		"bodyPart": "Chest",
+		"rating": 5
 	},
 	{
 		"name": "Pullups",
 		"sets": 3,
-		"reps": 5
+		"reps": 5,
+		"bodyPart": "Shoulder",
+		"rating": 4
 	},
 	{
 		"name": "Pushups",
 		"sets": 3,
-		"reps": 10
+		"reps": 10,
+		"bodyPart": "Chest",
+		"rating": 4
 	},
 	{
 		"name": "Squats",
 		"sets": 3,
-		"reps": 15
+		"reps": 15,
+		"bodyPart": "Legs",
+		"rating": 5
 	}
 ]

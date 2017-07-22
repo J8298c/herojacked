@@ -7,7 +7,8 @@ class WorkoutList extends Component {
     const workoutcards = elWorkout.map((workout) => {
       return (
         <WorkoutCard
-          name={workout.name} key={workout._id}
+          name={workout.name} key={workout._id} bodyPart={workout.bodyPart}
+          rating={workout.rating}
         />
       );
     });
