@@ -1,4 +1,4 @@
-import { FETCH_WORKOUTS } from '../actions/index';
+import { FETCH_WORKOUTS, ADD_WORKOUT } from '../actions/index';
 import store from '../store';
 
 const workoutReducer = (state = store.getState(), action) => {
@@ -6,6 +6,13 @@ const workoutReducer = (state = store.getState(), action) => {
     const { workouts } = action;
     const newState = Object.assign({}, state, {
       workouts,
+    });
+    return newState;
+  }
+  if (action.type === ADD_WORKOUT) {
+    const { workout } = action;
+    const newState = Object.assign({}, state, {
+      workout,
     });
     return newState;
   }

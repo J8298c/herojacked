@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { Form } from 'semantic-ui-react';
+import { addingWorkout } from '../../actions/index';
 import Input from '../Input';
-import AddWorkoutCheckBox from './AddWorkoutCheckbox';
 import AppButton from '../Button';
 import './AddWorkout.css';
 
@@ -18,25 +20,8 @@ class AddWorkout extends Component {
   }
   createWorkout(e) {
     e.preventDefault();
-    const{name, reps, sets} = this.state;
     console.log(this.state, 'state saved');
-    fetch('/workouts/create', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(this.state),
-    })
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    .then(response => response.json())
-    .then(json => {
-      console.log(json);
-    })
-    .catch(err => console.log(err));
+    this.props.addingWorkout(this.state);
   }
   render() {
     return (
@@ -68,4 +53,8 @@ class AddWorkout extends Component {
     );
   }
 }
-export default AddWorkout;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addingWorkout }, dispatch)
+}
+export default connect(null, mapDispatchToProps)(AddWorkout);

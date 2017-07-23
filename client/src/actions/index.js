@@ -6,6 +6,14 @@ export function fetchWorkouts(workouts) {
   };
   return action;
 }
+export const ADD_WORKOUT = 'ADD_WORKOUT';
+export function addWorkout(workout) {
+  const action = {
+    type: ADD_WORKOUT,
+    workout,
+  }
+  return action;
+}
 
 export function fetchingWorkouts() {
   return (dispatch) => {
@@ -24,4 +32,26 @@ export function fetchingWorkouts() {
         console.log(err);
       });
   };
+}
+
+export function addingWorkout(workout) {
+  return (dispatch) => {
+    fetch('/workouts/create', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(workout),
+    })
+    .then((response) => {
+      console.log(response);
+      return response;
+    })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+    })
+    .catch(err => console.log(err));
+  }
 }
