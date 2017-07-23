@@ -1,0 +1,23 @@
+.ui.button.createButton {
+    width: 20%;
+    display: block;
+    margin: 38% auto;
+    background-color: #26D583;
+    color: #E4EBF1;
+}
+input.createinput {
+    width: 86%;
+    margin-top: 13px;
+    margin-bottom: 12px;
+    margin-left: 15px;
+    border-radius: 4px;
+    height: 25px;
+    background: rgba(206, 212, 216, 0.3);
+    border: 1px solid #D7DEE4;
+    color: #D7DEE4;
+    font-size: 16px;
+}
+.ui.form .field>label.appLabel {
+    font-size: 22px;
+    color: #26D583
+}

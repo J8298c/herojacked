@@ -16,10 +16,11 @@ module.exports = (app, Workouts) => {
       name: req.body.name,
       reps: req.body.reps,
       sets: req.body.sets,
+      bodyPart: req.body.bodyParts,
     });
     newWorkout.save((err) => {
-      if (err) { 
-        console.log(err); 
+      if (err) {
+        console.log(err);
       } else {
         Workouts.find({})
           .exec((err, workouts) => {
@@ -35,7 +36,7 @@ module.exports = (app, Workouts) => {
 
   app.get('/workouts/workout/:name', (req, res) => {
     Workouts.findOne({
-      name: req.params.name, 
+      name: req.params.name,
       /*
       need to add regex to model to make all names lowercase
       */
@@ -49,13 +50,13 @@ module.exports = (app, Workouts) => {
   });
 
   app.put('/workouts/edit/:name', (req, res) => {
-    Workouts.findOneAndUpdate({ name: req.params.name }, { 
-      $set: { 
+    Workouts.findOneAndUpdate({ name: req.params.name }, {
+      $set: {
         reps: req.body.reps,
         sets: req.body.sets,
-      } }, { 
-      new: true, 
-      upsert: true, 
+      } }, {
+      new: true,
+      upsert: true,
     }, (err, workout) => {
       if (err) {
         console.log(err);
@@ -74,7 +75,7 @@ module.exports = (app, Workouts) => {
       } else {
         console.log(`deleted ${workout}`);
         Workouts.find({}, (err, workouts) => {
-          if (err){
+          if (err) {
             console.log(err);
           } else {
             res.json(workouts);

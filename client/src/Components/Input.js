@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react';
 
 const Input = (props) => (
   <Form.Field>
-    <label htmlFor={props.htmlFor}>{props.label}</label>
+    <label className="appLabel" htmlFor={props.htmlFor}>{props.label}</label>
     <input
       className={props.className} type={props.className}
       onChange={props.onChange} name={props.name}
