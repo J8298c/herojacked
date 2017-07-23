@@ -12,6 +12,7 @@ module.exports = (app, Workouts) => {
   });
 
   app.post('/workouts/create', (req, res, next) => {
+    console.log(req.body, 'the req body');
     const newWorkout = new Workouts({
       name: req.body.name,
       reps: req.body.reps,

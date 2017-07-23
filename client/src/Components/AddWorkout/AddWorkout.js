@@ -18,18 +18,18 @@ class AddWorkout extends Component {
   }
   createWorkout(e) {
     e.preventDefault();
+    const{name, reps, sets} = this.state;
     console.log(this.state, 'state saved');
     fetch('/workouts/create', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: {
-        name: this.state.name,
-        reps: this.state.reps,
-        sets: this.state.sets,
-        bodyPart: this.state.bodyParts,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
+      method: 'POST',
+      body: JSON.stringify(this.state),
     })
     .then((response) => {
+      console.log(response);
       return response;
     })
     .then(response => response.json())
