@@ -11,7 +11,7 @@ export function addWorkout(workout) {
   const action = {
     type: ADD_WORKOUT,
     workout,
-  }
+  };
   return action;
 }
 
@@ -50,8 +50,8 @@ export function addingWorkout(workout) {
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
+      dispatch(addWorkout(json));
     })
     .catch(err => console.log(err));
-  }
+  };
 }
