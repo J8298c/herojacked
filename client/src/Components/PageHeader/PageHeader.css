@@ -1,0 +1,8 @@
+.pageheader {
+  width: 100%;
+  background-color: #D7DEE4;
+}
+.pageheader h1 {
+  text-align: center;
+  font-size: 25px;
+}
