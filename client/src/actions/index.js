@@ -55,3 +55,4 @@ export function addingWorkout(workout) {
     .catch(err => console.log(err));
   };
 }
+

@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import AddWorkout from './Components/AddWorkout/AddWorkout';
+import Routes from './routes';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import store from './store';
 
-ReactDOM.render(<Provider store={store}>
-  <AddWorkout />
-</Provider>, document.getElementById('root'));
+
+ReactDOM.render(
+  <Routes />, document.getElementById('root'));
 registerServiceWorker();

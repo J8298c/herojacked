@@ -1,6 +1,6 @@
 import React from 'react';
 import AppButton from '../Button';
-import './LandingPage.css';
+import './landingpage.css';
 
 const LandingPage = () => (
   <div className="landingpage">
