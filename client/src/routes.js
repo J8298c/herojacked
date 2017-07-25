@@ -6,6 +6,7 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import Login from './Components/Authentication/Login';
 import WorkoutListContainer from './Components/WorkoutList/WorkoutListContainer';
 import AddWorkout from './Components/AddWorkout/AddWorkout';
+import Signup from './Components/Authentication/Signup';
 
 const Routes = () => (
 	<Provider store={store}>
@@ -15,6 +16,7 @@ const Routes = () => (
 			<Route path='/login' component={Login} />
 			<Route path='/workouts' component={WorkoutListContainer} />
 			<Route path='/workouts/create' component={AddWorkout} />
+			<Route path='/signup' component={Signup} />
 		</div>
 	</Router>
 	</Provider>
