@@ -132,3 +132,13 @@ export function loggingUserIn(creds) {
       .catch(err => dispatch(userLoginError(err)));
   };
 }
+
+/*
+NOTES
+============
+need to refactor and generate a better flow 
+for actions and thunks
+create new action file for user actions && workout actions 
+need to add actionms for success and errors and dispatch accordingly 
+should be dipatch thunk -> if success -> dispatch -> success which will dispatch action : error -> dispatch error with error message payload
+*/

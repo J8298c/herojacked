@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchingAWorkout } from '../../actions/index.js';
 
 class Workout extends Component {
+	//turn this into contructor https://stackoverflow.com/questions/40828004/constructor-vs-componentwillmount-what-a-componentwillmount-can-do-that-a-const
 	componentWillMount(props) {
 		const { name } = this.props.match.params;
 		this.props.fetchingAWorkout(name);
@@ -16,7 +17,7 @@ class Workout extends Component {
     		console.log(name);
     	}
         return (
-            <h1>workout</h1>
+            <h1>{name}</h1>
         );
     }
 }
