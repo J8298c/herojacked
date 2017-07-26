@@ -1,4 +1,4 @@
-import { FETCH_WORKOUTS, ADD_WORKOUT, USER_LOGIN } from '../actions/index';
+import { FETCH_WORKOUTS, ADD_WORKOUT, USER_LOGIN, FIND_A_WORKOUT } from '../actions/index';
 import store from '../store';
 
 const workoutReducer = (state = store.getState(), action) => {
@@ -19,6 +19,12 @@ const workoutReducer = (state = store.getState(), action) => {
     const { user } = action;
     const newState = Object.assign({}, state, {
       user,
+    });
+    return newState;
+  } else if (action.type === FIND_A_WORKOUT) {
+    const { workout } = action;
+    const newState = Object.assign({}, state, {
+      workout,
     });
     return newState;
   }

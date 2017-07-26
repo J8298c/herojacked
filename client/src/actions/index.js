@@ -15,6 +15,15 @@ export function addWorkout(workout) {
   return action;
 }
 
+export const FIND_A_WORKOUT = 'FIND_A_WORKOUT';
+export function findAWorkout(workout) {
+  const action = {
+    type: FIND_A_WORKOUT,
+    workout
+  }
+  return action;
+}
+
 export function fetchingWorkouts() {
   return (dispatch) => {
     fetch('/workouts', { method: 'GET' })
@@ -53,6 +62,25 @@ export function addingWorkout(workout) {
       dispatch(addWorkout(json));
     })
     .catch((err) => console.log(err));
+  };
+}
+
+export function fetchingAWorkout(name) {
+  return (dispatch) => {
+    fetch(`/workouts/workout/${name}`)
+    .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(json => {
+        dispatch(findAWorkout(json));
+      })
+      .catch(() => {
+        console.log('I dont work')
+      })
   };
 }
 
