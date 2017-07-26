@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import store from '../../store.js';
 import { fetchingWorkouts } from '../../actions/index';
 import WorkoutList from './WorkoutCardList';
+import Nav from '../Nav/Nav';
 import './workoutcard.css';
 
 class WorkoutListContainer extends Component {
@@ -14,7 +15,10 @@ class WorkoutListContainer extends Component {
   }
   render() {
     return (
+      <div>
+        <Nav />
       <WorkoutList workouts={this.props.workouts} />
+      </div>
     );
   }
 }

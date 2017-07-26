@@ -9,9 +9,9 @@ module.exports = (app, passport, User) => {
   });
 
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/user/profile',
-    failureRedirect: '/login',
-    failureFlash: true,
+    success: (req, res) => {
+      res.send('logged in');
+    },
   }));
 
   app.post('/signup', passport.authenticate('local-signup', {
@@ -36,6 +36,6 @@ module.exports = (app, passport, User) => {
 function isLoggedin(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
-  } 
+  }
   return res.redirect('/');
 }

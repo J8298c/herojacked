@@ -15,7 +15,6 @@ export function addWorkout(workout) {
   return action;
 }
 
-
 export function fetchingWorkouts() {
   return (dispatch) => {
     fetch('/workouts', { method: 'GET' })
@@ -53,12 +52,12 @@ export function addingWorkout(workout) {
     .then(json => {
       dispatch(addWorkout(json));
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
   };
 }
 
 /*
-Auth Actions 
+Auth Actions
 */
 
 export const USER_LOGIN = 'USER_LOGIN';
@@ -70,33 +69,19 @@ export function userLogin(user) {
   return action;
 }
 
-export function loggingUserIn(user) {
-  return (dispatch) => {
-    fetch('/login', {
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(user),
-    })
-      .then((response) => {
-        if(!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response;
-      })
-      .then(response => response.json())
-      .then(json => {
-        dispatch(userLogin);
-      })
-      .catch(err => console.log(err));
-  }
+export const USER_LOGIN_ERROR = 'USER_LOGIN_ERROR';
+export function userLoginError(message) {
+  const action = {
+    type: USER_LOGIN_ERROR,
+    message,
+  };
+  return action;
 }
 
-export function signingUserUp(creds) {
+export function loggingUserIn(creds) {
+  console.log(creds, 'user creditinals');
   return (dispatch) => {
-    fetch('/signup', {
+    fetch('/login', {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -108,13 +93,14 @@ export function signingUserUp(creds) {
         if (!response.ok) {
           throw Error(response.statusText);
         }
+        console.log(response, 'the response');
         return response;
       })
       .then(response => response.json())
       .then(json => {
-        console.log(json, 'user signed up')
-        // dispatch()
+        console.log(json, 'the json');
+        dispatch(userLogin(json));
       })
-      .catch(err => console.log(err));
-  }
+      .catch(err => dispatch(userLoginError(err)));
+  };
 }

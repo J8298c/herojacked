@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LandingPage from './Components/LandingPage/LandingPage';
 import Login from './Components/Authentication/Login';
 import WorkoutListContainer from './Components/WorkoutList/WorkoutListContainer';
@@ -20,6 +20,6 @@ const Routes = () => (
 		</div>
 	</Router>
 	</Provider>
-)
+);
 
 export default Routes;

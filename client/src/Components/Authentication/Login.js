@@ -19,6 +19,7 @@ class Login extends Component {
     event.preventDefault();
     console.log('clicked');
     console.log('the state', this.state);
+    this.props.loggingUserIn(this.state);
   }
   render() {
     return (
@@ -42,6 +43,7 @@ class Login extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('the store state', state);
   return {
     state,
   };
