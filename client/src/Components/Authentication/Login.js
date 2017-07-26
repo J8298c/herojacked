@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { loggingUserIn } from '../../actions/index';
 import Input from '../Input';
 import Button from '../Button';
 
@@ -38,4 +41,13 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    state,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ loggingUserIn }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

@@ -15,6 +15,7 @@ export function addWorkout(workout) {
   return action;
 }
 
+
 export function fetchingWorkouts() {
   return (dispatch) => {
     fetch('/workouts', { method: 'GET' })
@@ -56,3 +57,64 @@ export function addingWorkout(workout) {
   };
 }
 
+/*
+Auth Actions 
+*/
+
+export const USER_LOGIN = 'USER_LOGIN';
+export function userLogin(user) {
+  const action = {
+    type: USER_LOGIN,
+    user,
+  };
+  return action;
+}
+
+export function loggingUserIn(user) {
+  return (dispatch) => {
+    fetch('/login', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(user),
+    })
+      .then((response) => {
+        if(!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(json => {
+        dispatch(userLogin);
+      })
+      .catch(err => console.log(err));
+  }
+}
+
+export function signingUserUp(creds) {
+  return (dispatch) => {
+    fetch('/signup', {
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(creds),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(json => {
+        console.log(json, 'user signed up')
+        // dispatch()
+      })
+      .catch(err => console.log(err));
+  }
+}
