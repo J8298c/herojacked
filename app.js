@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const jwt = require('express-jwt');
-const jwks = require('jwks-rsa');
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const keys = require('./api/config/keys');
 
 const port = process.env.PORT || 8080;
 
 const app = express();
-// require('./api/config/passport')(passport);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,19 +18,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// const jwtCheck = jwt({
-//   secret: jwks.ExpressJwtSecret({
-//     cache: true,
-//     rateLimit: true,
-//     jwksRequestsPerMinute: 5,
-//     jwksUri: 'https://j8298c.auth0.com/.well-known/jwks.json',
-//   }),
-//   audience: 'https://localhost:8080',
-//   issuer: 'https://j8298c.auth0.com/',
-//   algorithms: ['RS256'],
-// });
-// app.use(jwtCheck);
-
+passport.use(new GoogleStrategy());
 mongoose.Promise = global.Promise;
 
 const DB = require('./api/config/db');
