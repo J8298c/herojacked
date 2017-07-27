@@ -18,7 +18,14 @@ app.use((req, res, next) => {
   next();
 });
 
-passport.use(new GoogleStrategy());
+passport.use(new GoogleStrategy({
+  clientID: keys.G_CLIENT_ID,
+  clientSecret: keys.G_CLIENT_SECRET,
+  callbackURL: '/auth/google/callback',
+}, (accessToken) => {
+  console.log(accessToken);
+}));
+
 mongoose.Promise = global.Promise;
 
 const DB = require('./api/config/db');
