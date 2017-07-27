@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
+import './Nav.css';
 
 class Nav extends Component {
   constructor(props) {
@@ -7,18 +8,16 @@ class Nav extends Component {
     this.state = {
       activeItem: 'home',
     };
-    this.handleClickItem = this.handleClickItem.bind(this);
+    this.handleItemClick = this.handleItemClick.bind(this);
   }
-  handleClickItem(e, { name }) {
-    this.setState({
-      activeItem: name,
-    });
+  handleItemClick(e, { name }) {
+    this.setState({ activeItem: name });
   }
   render() {
     const { activeItem } = this.state;
     return (
-          <div>
-              <Menu pointing secondary>
+          <div className="navbar">
+              <Menu pointing secondary className="navbar">
                   <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
                   <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
                   <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />

@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #26D583;
+}
+.ui.secondary.pointing.menu .item {
+    color: #E4EBF1;
+}
+.ui.secondary.pointing.menu .active.item {
+    color: #313E52;
+    border-color: #313E52;
+}
+.ui.secondary.pointing.menu .item:hover {
+    color: #3F51B5;
+    border-color: #3F51B5;
+}

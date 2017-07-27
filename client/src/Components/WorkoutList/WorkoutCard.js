@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import AppCard from '../Card';
 
 const WorkoutCard = (props) => {
   const extra = (
@@ -13,8 +14,8 @@ const WorkoutCard = (props) => {
     workoutRatings.push(extra);
   }
   return (
-    <Link to={`/workout/${props.name}`}><Card
-      header={props.name} meta={props.bodyPart} extra={workoutRatings} key={props.itemKey}
+    <Link to={`/workout/${props.name}`} className="card-link"><AppCard
+      header={props.name} meta={props.bodyPart} key={props.itemKey} color="violet"
       image={require('../../images/weights-icon.svg')}
     /></Link>
   );

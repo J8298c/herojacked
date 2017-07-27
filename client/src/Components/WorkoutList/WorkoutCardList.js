@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 import WorkoutCard from './WorkoutCard';
 
 class WorkoutList extends Component {
@@ -6,16 +7,16 @@ class WorkoutList extends Component {
     const elWorkout = this.props.workouts;
     const workoutcards = elWorkout.map((workout) => {
       return (
-        <WorkoutCard
-          name={workout.name} itemkey={workout._id} bodyPart={workout.bodyPart}
-          rating={workout.rating}
-        />
+          <WorkoutCard
+            name={workout.name} key={workout._id} bodyPart={workout.bodyPart}
+            rating={workout.rating}
+          />
       );
     });
     return (
-      <div>
+      <Card.Group>
         {workoutcards}
-      </div>
+      </Card.Group>      
     );
   }
 }

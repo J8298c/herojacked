@@ -1,11 +1,18 @@
 .ui.card {
   display: inline-block;
   background-color: #26D583;
-  width: 28%;
-  margin-left: 3%;
   border-color: #26D583;
+  margin-left: 5%;
+  max-width: 90%;
 }
 .ui.card>.extra a:not(.ui), .ui.cards>.card>.extra a:not(.ui) {
     color: #E4EBF1;
     opacity: 1;
 }
+.ui.cards {
+    width: 85%;
+    margin: 45px auto;
+}
+  .card-link {
+    margin-top: 25px;
+  }
