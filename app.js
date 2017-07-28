@@ -18,13 +18,16 @@ app.use((req, res, next) => {
   next();
 });
 
-passport.use(new GoogleStrategy({
-  clientID: keys.G_CLIENT_ID,
-  clientSecret: keys.G_CLIENT_SECRET,
-  callbackURL: '/auth/google/callback',
-}, (accessToken) => {
-  console.log(accessToken);
-}));
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: keys.googleClientID,
+      clientSecret: keys.googleClientSecret,
+      callbackURL: '/auth/google/callback',
+    }, 
+    accessToken => {
+      console.log(accessToken);
+    }));
 
 mongoose.Promise = global.Promise;
 
@@ -40,6 +43,11 @@ const Workouts = require('./api/models/workout_model');
 // const User = require('./api/models/user_model');
 require('./api/routes/workouts_routes')(app, Workouts);
 // require('./api/routes/user_routes')(app, passport, User);
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email'],
+}));
+
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
