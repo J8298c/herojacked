@@ -25,8 +25,10 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL: '/auth/google/callback',
     }, 
-    accessToken => {
-      console.log(accessToken);
+    (accessToken, refreshToken, profile, done) => {
+      console.log(accessToken, 'access token');
+      console.log(refreshToken, 'refresh token');
+      console.log(profile, 'profile');
     }));
 
 mongoose.Promise = global.Promise;
