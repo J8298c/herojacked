@@ -1,9 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const keys = require('./api/config/keys');
+require('./api/config/passport');
 
 const port = process.env.PORT || 8080;
 
@@ -18,19 +16,6 @@ app.use((req, res, next) => {
   next();
 });
 
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: keys.googleClientID,
-      clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
-    }, 
-    (accessToken, refreshToken, profile, done) => {
-      console.log(accessToken, 'access token');
-      console.log(refreshToken, 'refresh token');
-      console.log(profile, 'profile');
-    }));
-
 mongoose.Promise = global.Promise;
 
 const DB = require('./api/config/db');
@@ -42,14 +27,8 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 const Workouts = require('./api/models/workout_model');
-// const User = require('./api/models/user_model');
 require('./api/routes/workouts_routes')(app, Workouts);
-// require('./api/routes/user_routes')(app, passport, User);
-app.get('/auth/google', passport.authenticate('google', {
-  scope: ['profile', 'email'],
-}));
-
-app.get('/auth/google/callback', passport.authenticate('google'));
+require('./api/routes/auth_routes')(app);
 
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
