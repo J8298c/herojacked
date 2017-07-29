@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('./api/models/user_model');
 require('./api/config/passport');
+const keys = require('./api/config/keys');
 
 const port = process.env.PORT || 8080;
 
@@ -18,12 +20,10 @@ app.use((req, res, next) => {
 
 mongoose.Promise = global.Promise;
 
-const DB = require('./api/config/db');
-
 if (process.env.NODE_ENV === 'test') {
-  mongoose.connect(DB.testDB);
+  mongoose.connect(keys.testDB);
 } else {
-  mongoose.connect(DB.dbUrl);
+  mongoose.connect(keys.dbUrl);
 }
 
 const Workouts = require('./api/models/workout_model');
