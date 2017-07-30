@@ -32,7 +32,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "concurrently \"nodemon app.js\" \"cd client && npm start\"",
     "test": "mocha",
     "client": "cd client && npm start",
     "server": "node app.js"
