@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'semantic-react-ui';
+import { Card } from 'semantic-ui-react';
 
 const WorkoutCard = (props) => (
   <Card 
