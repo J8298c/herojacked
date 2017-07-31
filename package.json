@@ -15,7 +15,8 @@
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.1",
     "passport": "^0.3.2",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "semantic-ui-react": "^0.71.3"
   },
   "devDependencies": {
     "assert": "^1.4.1",
