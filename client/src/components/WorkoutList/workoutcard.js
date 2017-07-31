@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react';
 
 const WorkoutCard = (props) => (
   <Card 
-    image={props.image} header={props.header} meta={props.meta} description={props.description} extra={extra}
+    image={props.image} header={props.header} meta={props.meta} description={props.description} extra={props.extra}
   />
 );
 
