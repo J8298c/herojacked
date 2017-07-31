@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
+import './navbar.css';
 
 class NavBar extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class NavBar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <div>
+      <div className="navbar">
         <Menu pointing secondary>
           <Menu.Item 
             name='home' active={activeItem === 'home'} onClick={this.handleItemClick}
