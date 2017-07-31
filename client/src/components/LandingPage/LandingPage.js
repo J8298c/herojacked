@@ -1,7 +1,9 @@
 import React from 'react';
 
 const LandingPage = () => (
-        <h1>Hey Yo</h1>
+  <div>
+        <h1>ThunderHammer</h1>
+  </div>
 );
 
 export default LandingPage;

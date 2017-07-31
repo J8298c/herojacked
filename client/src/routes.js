@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import LandingPage from './components/landingpage';
+import LandingPage from './components/LandingPage/LandingPage';
 import NavBar from './components/Nav/NavBar';
-import AppPage from './components/AppPage';
 import store from './Store';
 
 const Routes = (
@@ -12,7 +11,6 @@ const Routes = (
             <div>
                 <NavBar />
                 <Route exact path='/' component={LandingPage} />
-                <Route path="/app" component={AppPage} />
             </div>  
         </Router> 
     </Provider>
