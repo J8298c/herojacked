@@ -8,7 +8,13 @@ import * as actions from './actions/index';
 
 class Routes extends Component {
   componentDidMount() {
-    this.props.fetchUser();
+    fetch('/api/current_user')
+    .then(res => res.json())
+    .then(json => {
+      console.log(json);
+    }).catch(err => {
+      console.log(`Theres an ${err}`);
+    });
   }
   render() {
     return (
@@ -17,10 +23,10 @@ class Routes extends Component {
                  <NavBar />
                  <Route exact path='/' component={LandingPage} />
                  <Route path='/workouts' component={WorkoutListContainer} />
-             </div>  
-         </Router> 
+             </div>
+         </Router>
     );
   }
 }
 
-export default connect(null, actions)(Routes);
+export default Routes;
