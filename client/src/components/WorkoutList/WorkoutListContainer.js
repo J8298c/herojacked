@@ -5,13 +5,18 @@ class WorkoutListContainer extends Component {
     super(props);
     this.state = {
       workouts: [],
-    }; 
+    };
+    fetch('/workouts')
+        .then((res) => res.json())
+        .then(json => {
+            console.log(json);
+        }); 
   }
   render() {
     console.log(this.state, 'the state');
     return (
             <div>
-                <h1>>WorkoutListContainer</h1>
+                <h1>WorkoutListContainer</h1>
             </div>
     );
   }
