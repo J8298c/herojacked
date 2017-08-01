@@ -1,5 +1,5 @@
 module.exports = (app, Workouts) => {
-  app.get('/workouts', (req, res) => {
+  app.get('/api/workouts', (req, res) => {
     Workouts.find({})
       .exec((err, workouts) => {
         if (err) {
@@ -11,7 +11,7 @@ module.exports = (app, Workouts) => {
       });
   });
 
-  app.post('/workouts/create', (req, res, next) => {
+  app.post('/api/workouts/create', (req, res, next) => {
     console.log(req.body, 'the req body');
     const newWorkout = new Workouts({
       name: req.body.name,
@@ -35,7 +35,7 @@ module.exports = (app, Workouts) => {
     });
   });
 
-  app.get('/workouts/workout/:name', (req, res) => {
+  app.get('/api/workouts/workout/:name', (req, res) => {
     Workouts.findOne({
       name: req.params.name,
       /*
@@ -50,7 +50,7 @@ module.exports = (app, Workouts) => {
     });
   });
 
-  app.put('/workouts/edit/:name', (req, res) => {
+  app.put('/api/workouts/edit/:name', (req, res) => {
     Workouts.findOneAndUpdate({ name: req.params.name }, {
       $set: {
         reps: req.body.reps,
@@ -67,7 +67,7 @@ module.exports = (app, Workouts) => {
     });
   });
 
-  app.delete('/workouts/delete/:name', (req, res) => {
+  app.delete('/api/workouts/delete/:name', (req, res) => {
     Workouts.findOneAndRemove({
       name: req.params.name,
     }, (err, workout) => {
