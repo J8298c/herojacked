@@ -33,3 +33,12 @@ class WorkoutListContainer extends Component {
 }
 
 export default WorkoutListContainer;
+
+/*
+
+Notes
+1. Need to use redux thunk for fetch call
+2. add logic for displaying star Icons as ratings
+3. Style Component and import
+
+*/
