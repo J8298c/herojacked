@@ -8,13 +8,7 @@ import * as actions from './actions/index';
 
 class Routes extends Component {
   componentDidMount() {
-    fetch('/api/current_user')
-    .then(res => res.json())
-    .then(json => {
-      console.log(json);
-    }).catch(err => {
-      console.log(`Theres an ${err}`);
-    });
+    this.props.fetchUser();
   }
   render() {
     return (
@@ -29,4 +23,4 @@ class Routes extends Component {
   }
 }
 
-export default Routes;
+export default connect(null, actions)(Routes);
