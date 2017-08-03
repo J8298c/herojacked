@@ -31,9 +31,7 @@ class WorkoutListContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state, 'the state in mapstatetoprops');
   const { workouts } = state;
-  console.log(workouts, 'workout mapstatetoprops')
   return {
     workouts,
   };
