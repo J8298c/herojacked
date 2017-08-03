@@ -1,29 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import WorkoutCard from './WorkoutCard';
+import { fetchingWorkouts } from '../../actions/index';
+import Loading from '../Loader';
 
 class WorkoutListContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state ={
-      workouts: [],
-    };
-    fetch('/api/workouts')
-      .then(res => res.json())
-      .then(json => {
-        console.log(json, 'response from DB');
-        this.setState({workouts: json});
-      })
+  componentDidMount() {
+    this.props.fetchingWorkouts();
   }
   render() {
-    console.log(this.state, 'the state of application');
-    const { workouts } = this.state;
-    console.log('workouts var', workouts);
-    const workoutCards = workouts.map((workout) => (
-      <WorkoutCard
-        header={workout.name} key={workout._id}
-        meta={workout.reps}
-      />
-    ));
+    let workoutCards;
+    const { workouts } = this.props;
+    if (workouts) {
+      workoutCards = workouts.map((workout) => (
+        <WorkoutCard
+          header={workout.name} meta={workout.bodyPart}
+          extra={workout.rating} key={workout._id}
+        />
+      ));
+    } else {
+      workoutCards = <Loading />;
+    }
     return (
       <div>
         {workoutCards}
@@ -32,7 +30,20 @@ class WorkoutListContainer extends Component {
   }
 }
 
-export default WorkoutListContainer;
+function mapStateToProps(state) {
+  console.log(state, 'the state in mapstatetoprops');
+  const { workouts } = state;
+  console.log(workouts, 'workout mapstatetoprops')
+  return {
+    workouts,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchingWorkouts }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkoutListContainer);
 
 /*
 
