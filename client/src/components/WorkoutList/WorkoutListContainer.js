@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import WorkoutCard from './WorkoutCard';
 import { fetchingWorkouts } from '../../actions/index';
 import Loading from '../Loader';
@@ -14,10 +15,10 @@ class WorkoutListContainer extends Component {
     const { workouts } = this.props;
     if (workouts) {
       workoutCards = workouts.map((workout) => (
-        <WorkoutCard
+        <Link key={workout._id} to={`/workout/${workout.name}`}><WorkoutCard
           header={workout.name} meta={workout.bodyPart}
           extra={workout.rating} key={workout._id}
-        />
+        /></Link>
       ));
     } else {
       workoutCards = <Loading />;

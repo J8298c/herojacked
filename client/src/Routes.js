@@ -11,7 +11,7 @@ class Routes extends Component {
                 <div>
                     <Route exact path="/" component={LandingPage} />
                     <Route path="/allworkouts" component={WorkoutListContainer} />
-                    <Route path="/workouts/:name" compnent={WorkoutContainer} />
+                    <Route path="/workout/:name" compnent={WorkoutContainer} />
                 </div>
             </Router>
         )

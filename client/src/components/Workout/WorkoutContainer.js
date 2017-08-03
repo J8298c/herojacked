@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
 class WorkoutContainer extends Component {
-    componentDidMount() {
-        //add fetch to find a workout here
-    }
-    render() {
+    render(props) {
+        console.log(props.match.params, 'params');
         return (
-            <h1>
-                Workout Container
-            </h1>
-        );
-    };
+            <h1>WorkoutContainer</h1>
+        )
+    }
 }
 
 export default WorkoutContainer;
