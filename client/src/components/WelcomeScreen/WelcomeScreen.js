@@ -1,19 +1,41 @@
 import React, { Component } from 'react';
-import ScreenItem from './ScreenItems';
+import { Grid } from 'semantic-ui-react';
+import ScreenItems from './ScreenItems';
+import './welcomescreen.css';
 
 class WelcomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      items: [
+          {
+            name: 'Workouts',
+              icon: 'lightning'
+          },
+          {
+            name: 'Profile',
+              icon: 'user'
+          },
+          {
+            name: 'Hero Wod',
+              icon: 'trophy'
+          }
+      ]
+    };
+  }
   render() {
-    const categories = ['profile', 'workouts', 'waterintake', 'steps'];
-    const screenCards = categories.forEach((category, i) => (
-      <ScreenItem 
-        name='hand spock'
-        iconHeader={category[i]}
-      />
+    console.log(this.state, 'the state obj');
+    const welcomeIcon = this.state.items.map((icon, i) => (
+        <ScreenItems
+            name={icon.icon}
+            iconHeader={icon.name}
+            key={`screenitem# ${i}`}
+        />
     ));
     return (
-      <div>
-        {screenCards}
-      </div>
+      <Grid columns={2}>
+          {welcomeIcon}
+      </Grid>
     );
   }
 }

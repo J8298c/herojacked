@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import WorkoutCard from './WorkoutCard';
 import { fetchingWorkouts } from '../../actions/index';
 import Loading from '../Loader';
+import './workoutlist.css';
 
 class WorkoutListContainer extends Component {
   componentDidMount() {

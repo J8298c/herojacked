@@ -1,14 +1,15 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Grid } from 'semantic-ui-react';
 
 const ScreenItems = (props) => (
-  <div>
+  <Grid.Column className="icondiv">
     <Icon
       name={props.name}
       size="massive"
+      className="icon"
     />
     <p>{props.iconHeader}</p>
-  </div>
+  </Grid.Column>
 );
 
 export default ScreenItems;
