@@ -35,7 +35,7 @@ module.exports = (app, Workouts) => {
     });
   });
 
-  app.get('/api/workouts/workout/:name', (req, res) => {
+  app.get('/api/workouts/:name', (req, res) => {
     Workouts.findOne({
       name: req.params.name,
       /*

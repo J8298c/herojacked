@@ -16,7 +16,7 @@ class WorkoutListContainer extends Component {
     const { workouts } = this.props;
     if (workouts) {
       workoutCards = workouts.map((workout) => (
-        <Link key={workout._id} to={`/workout/${workout.name}`}><WorkoutCard
+        <Link key={workout._id} to={`/workouts/${workout.name}`}><WorkoutCard
           header={workout.name} meta={workout.bodyPart}
           extra={workout.rating} key={workout._id}
         /></Link>

@@ -1,1 +1,2 @@
 export const FETCH_WORKOUTS = 'FETCH_WORKOUTS';
+export const FETCH_A_WORKOUT = 'FETCH_A_WORKOUT';

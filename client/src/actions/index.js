@@ -1,4 +1,4 @@
-import { FETCH_WORKOUTS } from './const';
+import { FETCH_WORKOUTS, FETCH_A_WORKOUT } from './const';
 
 export function fetchWorkouts(workouts) {
   const action = {
@@ -16,4 +16,23 @@ export function fetchingWorkouts() {
         dispatch(fetchWorkouts(json));
       });
   };
+}
+
+export function fetchAWorkout(workout) {
+  const action = {
+    type: FETCH_A_WORKOUT,
+      workout,
+  };
+  return action;
+}
+
+export function fetchingAWorkout(name) {
+  return (dispatch) => {
+    fetch(`/api/workouts/${name}`)
+        .then(res => res.json())
+        .then(json => {
+          console.log(json);
+          dispatch(fetchAWorkout(json));
+        })
+  }
 }
