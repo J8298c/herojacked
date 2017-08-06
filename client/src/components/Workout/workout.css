@@ -1,0 +1,23 @@
+.workouttitle img {
+    width: 48%;
+    display: block;
+    margin: 40px auto;
+}
+.workouttitle h1 {
+    text-align: center;
+    font-size: 50px;
+}
+.workoutdetails {
+    width: 70%;
+    display: block;
+    margin: 24px auto;
+}
+.workoutdetails p {
+    font-size: 22px;
+}
+.ui.card.userfeed {
+    display: block;
+    margin: 75px auto;
+    width: 70%;
+    background-color: #26D583;
+}
