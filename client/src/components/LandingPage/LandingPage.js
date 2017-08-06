@@ -1,10 +1,24 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 import './landingpage.css';
 
 const LandingPage = () => (
     <div className="landingpagecontainer">
         <h1>HeroJacked</h1>
+        <Button
+            color='blue'
+            animated='fade'
+            className='signin'
+            >
+            <Button.Content visible>
+            Sign in With Google
+            </Button.Content>
+            <Button.Content hidden>
+                <Icon
+                    name='google'
+                />
+            </Button.Content>
+        </Button>
     </div>
 
 );

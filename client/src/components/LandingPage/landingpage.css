@@ -1,11 +1,13 @@
 .landingpagecontainer {
     width: 100%;
+    height: 100%;
+    position: absolute;
 }
 .landingpagecontainer h1 {
     text-align: center;
     margin-top: 35px;
 }
-.signin {
+button.ui.blue.fade.animated.button.signin {
+    margin: 99% auto;
     display: block;
-    margin: 57% auto;
 }
