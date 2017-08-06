@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 import './landingpage.css';
+import weight from '../../images/weights-icon.svg';
 
 const LandingPage = () => (
     <div className="landingpagecontainer">
         <h1>HeroJacked</h1>
+        <img src={weight} />
         <Button
             color='blue'
             animated='fade'
