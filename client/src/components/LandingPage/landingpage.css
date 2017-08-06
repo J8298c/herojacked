@@ -1,0 +1,11 @@
+.landingpagecontainer {
+    width: 100%;
+}
+.landingpagecontainer h1 {
+    text-align: center;
+    margin-top: 35px;
+}
+.signin {
+    display: block;
+    margin: 57% auto;
+}
