@@ -4,7 +4,9 @@ import LandingPage from './components/LandingPage/LandingPage';
 
 const Routes = () => (
     <Router>
-        <Route path="/" component={LandingPage} />
+        <div>
+            <Route exact path="/" component={LandingPage} />
+        </div>
     </Router>
 );
 
