@@ -9,7 +9,10 @@ import './workouts.css';
 
 class WorkoutsContainer extends Component {
     componentDidMount() {
-        this.props.fetchingAllWorkouts();
+        // this.props.fetchingAllWorkouts();
+        fetch('/api/workouts')
+            .then(response => response.json())
+            .then(json => { console.log(json); })
     }
     render(props) {
         const { workouts } = this.props;
