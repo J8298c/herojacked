@@ -1,0 +1,7 @@
+.ui.workoutcards.cards {
+    margin-top: 20%;
+}
+.ui.card.workoutcard {
+    display: block;
+    margin: 5% auto;
+}
