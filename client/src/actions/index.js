@@ -17,3 +17,13 @@ export function fetchAWorkout(workout) {
     };
     return action;
 }
+
+export function fetchingAllWorkouts() {
+    return (dispatch) => {
+        fetch('/api/workouts')
+            .then(response => response.json())
+            .then(json => {
+                dispatch(fetchAllWorkouts(json))
+            });
+    }
+}

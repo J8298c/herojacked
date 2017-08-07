@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import WorkoutCard from '../WorkoutCard';
 import weights from '../../images/weights-icon.svg';
+import {fetchingAllWorkouts} from "../../actions/index"
 import './workouts.css';
 
 class WorkoutsContainer extends Component {
     componentDidMount() {
-        fetch('/api/workouts')
-            .then(response => response.json())
-            .then(json => {console.log('the response', json);})
+        this.props.fetchingAllWorkouts();
     }
     render(props) {
+        const { workouts } = this.props;
+        console.log(workouts);
         return (
             <div>
                 <Card.Group className="workoutcards">
@@ -25,5 +28,14 @@ class WorkoutsContainer extends Component {
         )
     }
 }
+function mapStateToProps(state) {
+    const { workouts } = state;
+    return {
+        workouts,
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({fetchingAllWorkouts}, dispatch);
+}
 
-export default WorkoutsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(WorkoutsContainer);
