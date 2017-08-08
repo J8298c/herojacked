@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import pullupsImg from '../../images/pullup.svg';
 import userImg from '../../images/starlord.jpg';
 import FeedCard from '../FeedCard';
+import { fetchWorkouts } from '../../actions/index';
 import './workout.css';
 
 class WorkoutContainer extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            loading: true
-        };
+    componentDidMount() {
+        this.props.fetchWorkouts();
     }
     render() {
         return (
@@ -32,4 +32,12 @@ class WorkoutContainer extends Component {
         )
     }
 }
-export default WorkoutContainer;
+function mapStateToProps(state) {
+    return {
+        state,
+    }
+}
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({fetchWorkouts}, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(WorkoutContainer);
