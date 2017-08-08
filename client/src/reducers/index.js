@@ -1,16 +1,10 @@
-import { FETCH_ALL_WORKOUTS, FETCH_A_WORKOUT} from '../actions/index';
+import { combineReducers } from 'redux';
+import { fetchWorkoutsError, componentIsLoading, fetchWorkoutsSuccess} from './workout_reducer';
 
-function workoutReducer(state = {}, action) {
-  if (action.type === FETCH_ALL_WORKOUTS) {
-    const { workouts } = action;
-    const newState = Object.assign({}, state, { workouts });
-    return newState;
-  } else if (action.type === FETCH_A_WORKOUT) {
-    const { workout } = action;
-    const newState = Object.assign({}, state, { workout });
-    return newState;
-  }
-  return state;
-}
+const appReducer = combineReducers({
+   fetchWorkoutsSuccess,
+    componentIsLoading,
+    fetchWorkoutsError
+});
 
-export default workoutReducer;
+export default appReducer;

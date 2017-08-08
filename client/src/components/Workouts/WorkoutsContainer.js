@@ -4,41 +4,37 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import WorkoutCard from '../WorkoutCard';
 import weights from '../../images/weights-icon.svg';
-import {fetchingAllWorkouts} from "../../actions/index"
+import {fetchWorkouts} from "../../actions/index"
 import './workouts.css';
-
+let workoutcard;
 class WorkoutsContainer extends Component {
     componentDidMount() {
-        // this.props.fetchingAllWorkouts();
-        fetch('/api/workouts')
-            .then(response => response.json())
-            .then(json => { console.log(json); })
+        this.props.fetchWorkouts();
     }
     render(props) {
-        const { workouts } = this.props;
-        console.log(workouts);
+    if (this.props.hasErrored) {
+       return  <p>Sorry there has been an Error</p>;
+    }
+    while(this.props.isLoading) {
+        workoutcard =  <p>...Loading</p>;
+    }
         return (
             <div>
                 <Card.Group className="workoutcards">
-                    <WorkoutCard
-                        image={weights} cardheader="Pullups" cardmeta="Shoulders" buttontext="Go to Workout"
-                    />
-                    <WorkoutCard
-                        image={weights} cardheader="Pullups" cardmeta="Shoulders" buttontext="Go to Workout"
-                    />
+                    {workoutcard}
                 </Card.Group>
             </div>
         )
     }
 }
 function mapStateToProps(state) {
-    const { workouts } = state;
+    console.log(state);
     return {
-        workouts,
+        state,
     }
 }
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({fetchingAllWorkouts}, dispatch);
+    return bindActionCreators({fetchWorkouts}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutsContainer);

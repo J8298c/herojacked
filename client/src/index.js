@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import './index.css';
-import workoutReducer from './reducers/index';
+import appReducer from './reducers/index';
 import ReduxThunk from 'redux-thunk';
 import Routes from './Routes';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(workoutReducer, {}, applyMiddleware(ReduxThunk));
+const store = createStore(appReducer, {}, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
     <Provider store={store}>
