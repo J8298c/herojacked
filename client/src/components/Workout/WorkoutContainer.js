@@ -15,7 +15,8 @@ class WorkoutContainer extends Component {
         return (
             <div className="workoutcontainer">
                 <div className="workouttitle">
-                    <img src={pullupsImg} />
+                    <img src={pullupsImg}
+                         alt="Icon of stick figure doing pullups"/>
                     <h1>PullUp</h1>
                 </div>
                 <div className="workoutdetails">

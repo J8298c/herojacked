@@ -12,7 +12,9 @@ const FeedCard = (props) => (
             <Feed>
                 <Feed.Event>
                     <Feed.Label>
-                        <img src={props.feedimg} />
+                        <img src={props.feedimg}
+                            alt=" Users friends profile"
+                        />
                     </Feed.Label>
                     <Feed.Content>
                         <Feed.Date content={props.feedcontent} />

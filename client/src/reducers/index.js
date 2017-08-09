@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { fetchWorkoutsError, componentIsLoading, fetchWorkoutsSuccess} from './workout_reducer';
+import workouts from './workout_reducer';
+import users from './user_reducer';
 
 const appReducer = combineReducers({
-   fetchWorkoutsSuccess,
-    componentIsLoading,
-    fetchWorkoutsError
+   workouts,
+    users,
 });
 
 export default appReducer;

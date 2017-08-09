@@ -6,7 +6,7 @@ import weight from '../../images/weights-icon.svg';
 const LandingPage = () => (
     <div className="landingpagecontainer">
         <h1>HeroJacked</h1>
-        <img src={weight} />
+        <img src={weight} alt="dumbbell icon" />
         <Button
             color='blue'
             animated='fade'

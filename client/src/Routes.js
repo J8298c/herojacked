@@ -9,7 +9,7 @@ const Routes = () => (
         <div>
             <Route exact path='/' component={LandingPage} />
             <Route path='/allworkouts' component={WorkoutsContainer} />
-            <Route path='/workout' component={WorkoutContainer} />
+            <Route path='/workout/:name' component={WorkoutContainer} />
         </div>
     </Router>
 );

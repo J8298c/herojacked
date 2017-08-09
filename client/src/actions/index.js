@@ -24,9 +24,16 @@ export function componentIsLoading(bool) {
     return action;
 }
 
-export function fetchWorkouts() {
+export function fetchWorkouts(name) {
     return (dispatch) => {
-        fetch('/api/workouts')
+        let url;
+        if (name) {
+            url = `/api/workouts/${name}`;
+        } else {
+            url = '/api/workouts';
+        }
+        console.log(url, 'the url variable');
+        fetch(url)
             .then((response) => {
                 if (!response.ok) {
                     throw Error(response.statusText);
