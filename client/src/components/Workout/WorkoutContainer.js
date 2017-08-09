@@ -5,24 +5,37 @@ import pullupsImg from '../../images/pullup.svg';
 import userImg from '../../images/starlord.jpg';
 import FeedCard from '../FeedCard';
 import { fetchWorkouts } from '../../actions/index';
+import WorkoutView from './WorkoutView';
+import Loading from '../Loader';
 import './workout.css';
 
 class WorkoutContainer extends Component {
     componentDidMount() {
-        this.props.fetchWorkouts();
+        const {name} = this.props.match.params;
+        this.props.fetchWorkouts(name);
     }
     render() {
+        let workoutView;
+        const { workouts, isLoading } = this.props;
+        console.log(workouts);
+        console.log(isLoading);
+        if (isLoading) {
+            workoutView = <Loading/>
+        } else {
+            workoutView = workouts.map((workout) => (
+               <WorkoutView
+                    img={pullupsImg}
+                    workoutname={workout.name}
+                    workoutreps={workout.reps}
+                    workoutsets={workout.sets}
+               />
+            ));
+            console.log(workoutView);
+        }
+
         return (
             <div className="workoutcontainer">
-                <div className="workouttitle">
-                    <img src={pullupsImg}
-                         alt="Icon of stick figure doing pullups"/>
-                    <h1>PullUp</h1>
-                </div>
-                <div className="workoutdetails">
-                    <p>Reps: 10</p>
-                    <p>Sets: 3</p>
-                </div>
+                {workoutView}
                 <FeedCard
                     cardheader="Recent Activity"
                     feedimg={userImg}
@@ -34,8 +47,11 @@ class WorkoutContainer extends Component {
     }
 }
 function mapStateToProps(state) {
+    const {workouts, isLoading } = state.workouts;
+    console.log(workouts);
     return {
-        state,
+        workouts,
+        isLoading,
     }
 }
 function mapDispatchToProps(dispatch){
