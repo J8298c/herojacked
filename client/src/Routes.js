@@ -4,6 +4,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import WorkoutContainer from './components/Workout/WorkoutContainer';
 import WorkoutsContainer from './components/Workouts/WorkoutsContainer';
 import WelcomeContainer from './components/WelcomeScreen/WelcomeContainer';
+import Profile from './components/Profile/Profile';
 
 const Routes = () => (
     <Router>
@@ -12,6 +13,7 @@ const Routes = () => (
             <Route path='/welcome' component={WelcomeContainer} />
             <Route path='/allworkouts' component={WorkoutsContainer} />
             <Route path='/workout/:name' component={WorkoutContainer} />
+            <Route path='/profile' component={Profile} />
         </div>
     </Router>
 );

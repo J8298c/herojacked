@@ -27,8 +27,9 @@ passport.use(
       const existingUser = await User.findOne({ googleId: profile.id });
       if (existingUser) {
         return done(null, existingUser);
-      } 
-      const user = await new User({ googleId: profile.id, profileImage: profile.image.url, username: profile.displayName, gender: profile.gender }).save();
+      }
+      const user = await new User({googleId: profile.id, username: profile.displayName, gender: profile.gender});
+      // const user = await new User({ googleId: profile.id, profileImage: profile.image.url, username: profile.displayName, gender: profile.gender }).save();
       done(null, user);
     }
   ));
