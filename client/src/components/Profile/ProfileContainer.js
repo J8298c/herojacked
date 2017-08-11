@@ -6,7 +6,7 @@ import { fetchUser } from '../../actions/index';
 import selfie from '../../images/selfie.jpg';
 import shoulderPress from '../../images/shoulderpress.svg';
 
-class Profile extends Component {
+class ProfileContainer extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
@@ -36,4 +36,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchUser }, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
