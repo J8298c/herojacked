@@ -10,7 +10,9 @@ class Profile extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  render() {
+  render(props) {
+    const { user } =this.props;
+    console.log(user);
     const extra = (
       <a>
       <Icon name='user' />
@@ -19,33 +21,16 @@ class Profile extends Component {
     );
     return (
         <div>
-          <Card>
-            <Card.Content>
-              <Image
-                floated='right' size='mini' src={selfie}
-              />
-            </Card.Content>
-            <Card.Content header='Julio Mojica' />
-            <Card.Content meta='Male' />
-            <Card.Content description='200lbs' />
-            <Card.Content extra={extra} />
-          </Card>
-          <Item>
-            <Item.Image
-              size='small'
-              src={shoulderPress}
-            />
-            <Item.Content verticalAlign='center'>
-              <Item.Header>Workouts</Item.Header>
-            </Item.Content>
-          </Item>
+          { user ? user.username : 'still dont have it'}
         </div>
     );
   }
 }
 function mapStateToProps(state) {
+  const { users } = state;
+  console.log(state);
   return (
-      state
+      users
   );
 }
 function mapDispatchToProps(dispatch) {

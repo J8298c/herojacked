@@ -6,7 +6,7 @@ module.exports = (app, Workouts) => {
           console.log(err);
         } else {
           console.log(workouts, 'workouts in the DB');
-          res.json(workouts);
+          res.send(workouts);
         }
       });
   });
