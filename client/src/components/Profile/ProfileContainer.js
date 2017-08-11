@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { Card, Icon, Item, Image } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import ProfileImage from './ProfileImage';
+import ProfileButton from './ProfileButtons';
 import { fetchUser } from '../../actions/index';
+import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
-import shoulderPress from '../../images/shoulderpress.svg';
 
 class ProfileContainer extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
-  render(props) {
-    const { user } =this.props;
-    console.log(user);
-    const extra = (
-      <a>
-      <Icon name='user' />
-      16 Friends
-    </a>
-    );
+  render() {
+    console.log(this.props.user, 'the user');
     return (
-        <div>
-          { user ? user.username : 'still dont have it'}
-        </div>
+      <div>
+        <ProfileImage
+          image={selfie} size='large' className='profileImage'
+        />
+        <h1>
+          {this.props.user ? this.props.user.username : <Loading /> }
+        </h1>
+      </div>
     );
   }
 }
