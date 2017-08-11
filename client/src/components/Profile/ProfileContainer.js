@@ -16,11 +16,18 @@ class ProfileContainer extends Component {
     return (
       <div>
         <ProfileImage
-          image={selfie} size='large' className='profileImage'
+          image={selfie} size='medium' className='profileImage'
         />
-        <h1>
-          {this.props.user ? this.props.user.username : <Loading /> }
-        </h1>
+        <div>
+          <h1>
+            {this.props.user ? this.props.user.username : <Loading /> }
+          </h1>
+        </div>
+        <ProfileButton
+          buttonOneLink='/allworkout' buttonOneText='Workouts'
+          buttonTwoLink='/' buttonTwoText='home'
+          buttonThreeLink='/logout' buttonThreeText='Logout'
+        />
       </div>
     );
   }
