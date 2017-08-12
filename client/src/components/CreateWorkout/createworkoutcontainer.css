@@ -1,0 +1,10 @@
+.createworkout {
+  width: 80%;
+  display: block;
+  margin: 10% auto;
+}
+button.ui.button.createworkout-submit {
+    width: 44%;
+    margin: 5% auto;
+    display: block;
+}
