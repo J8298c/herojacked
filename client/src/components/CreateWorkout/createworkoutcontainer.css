@@ -3,8 +3,25 @@
   display: block;
   margin: 10% auto;
 }
+
 button.ui.button.createworkout-submit {
     width: 44%;
-    margin: 5% auto;
+    margin: 60px auto;
     display: block;
+    background-color: #26D583;
+    color: #E4EBF1;
+}
+
+.ui.form .field>label {
+  color: #26D583;
+}
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input:focus {
+    border-color: #D7DEE4;
+    background-color: #D7DEE4;
+}
+
+.ui.form .field {
+    clear: both;
+    margin: 50px 0 1em;
 }

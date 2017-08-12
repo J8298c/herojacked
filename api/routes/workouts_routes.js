@@ -75,9 +75,9 @@ module.exports = (app, Workouts) => {
         console.log(err);
       } else {
         console.log(`deleted ${workout}`);
-        Workouts.find({}, (err, workouts) => {
-          if (err) {
-            console.log(err);
+        Workouts.find({}, (error, workouts) => {
+          if (error) {
+            console.log(error);
           } else {
             res.json(workouts);
           }

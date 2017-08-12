@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
+import axios from 'axios';
 import Inputs from '../Input';
 import './createworkoutcontainer.css';
 
@@ -16,8 +17,20 @@ class CreateWorkoutContainer extends Component {
   }
   onFormSubmit(e) {
     e.preventDefault();
-    console.log('clicked');
-    console.log(this.state);
+    const { workoutname, workoutreps, workoutsets } = this.state;
+    axios
+      .post('/api/workouts/create', {
+        name: workoutname,
+        sets: workoutsets,
+        reps: workoutreps,
+      })
+      .then(response => { console.log(response); })
+      .catch(err => { console.log(err); });
+      /*
+      add settime out function to show a loading
+      while performing post
+      also need an error page 
+      */
   }
   render() {
     return (
