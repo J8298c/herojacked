@@ -1,35 +1,33 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react';
 import axios from 'axios';
+import AppTitle from '../AppTitle';
+import AppIcon from '../AppIcon';
+import AppButton from '../AppButton';
 import './landingpage.css';
 import weight from '../../images/weights-icon.svg';
 
 class LandingPage extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = { user: null };
     axios
     .get('/api/current_user')
-    .then(response => { console.log(response, 'the response'); })
+    .then(response => { console.log(response.date); })
     .catch(err => { console.log(err); });
   }
   render() {
     return (
       <div className="landingpagecontainer">
-          <h1>HeroJacked</h1>
-          <img src={weight} alt="dumbbell icon" />
-          <Button
-            color='blue'
-            animated='fade'
-            className='signin'
-          >
-              <Button.Content visible>
-              Sign in With Google
-              </Button.Content>
-              <Button.Content hidden>
-                  <Icon
-                    name='google'
-                  />
-              </Button.Content>
-          </Button>
+          <AppTitle 
+            size='huge' headerText='ThunderHammer' className='app-title'
+          />
+          <AppIcon 
+            image={weight} size='big' alt='dumbell Icon' className='appicon'
+          />
+          <AppButton
+            color='blue' animated='fade' className='signin' 
+            buttonContent='Sign in with Google' iconName='google'
+          />
       </div>
     );
   }
