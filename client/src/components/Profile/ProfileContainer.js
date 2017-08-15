@@ -6,6 +6,7 @@ import Buttons from '../Buttons';
 import { fetchUser } from '../../actions/index';
 import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
+import './Profile.css';
 
 class ProfileContainer extends Component {
   componentDidMount() {
@@ -15,22 +16,22 @@ class ProfileContainer extends Component {
     console.log(this.props.user, 'the user');
     return (
       <div className='profile-container'>
+        <div className='profilename'>
+          {this.props.user ? this.props.user.username : <Loading />}
+        </div>
         <AppImage 
           imageSrc={selfie} size='medium' className='profileimage'
           
         />
-        <div>
-          {this.props.user ? this.props.user.username : <Loading />}
-        </div>
-        <div>
+        <div className='profilebuttons'>
           <Buttons
-            color='violet' content='Workouts'
+            color='violet' content='Workouts' className='profilebutton'
           />
           <Buttons
-            color='violet' content='Home'
+            color='violet' content='Home' className='profilebutton'
           />
           <Buttons
-            color='purple' content='Logout'
+            color='purple' content='Logout' className='profilebutton'
           />
         </div>
       </div>
