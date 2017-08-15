@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import AppTitle from '../AppTitle';
 import AppIcon from '../AppIcon';
 import AppButton from '../AppButton';
@@ -24,10 +25,10 @@ class LandingPage extends Component {
           <AppIcon 
             image={weight} size='big' alt='dumbell Icon' className='appicon'
           />
-          <AppButton
+          <Link to='/profile'><AppButton
             color='blue' animated='fade' className='signin' 
             buttonContent='Sign in with Google' iconName='google'
-          />
+          /></Link>
       </div>
     );
   }

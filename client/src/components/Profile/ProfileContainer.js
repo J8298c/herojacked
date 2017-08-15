@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ProfileImage from './ProfileImage';
-import ProfileButton from './ProfileButtons';
+import AppImage from '../AppImage';
+import Buttons from '../Buttons';
 import { fetchUser } from '../../actions/index';
 import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
@@ -14,20 +14,25 @@ class ProfileContainer extends Component {
   render() {
     console.log(this.props.user, 'the user');
     return (
-      <div>
-        <ProfileImage
-          image={selfie} size='medium' className='profileImage'
+      <div className='profile-container'>
+        <AppImage 
+          imageSrc={selfie} size='medium' className='profileimage'
+          
         />
         <div>
-          <h1>
-            {this.props.user ? this.props.user.username : <Loading /> }
-          </h1>
+          {this.props.user ? this.props.user.username : <Loading />}
         </div>
-        <ProfileButton
-          buttonOneLink='/allworkout' buttonOneText='Workouts'
-          buttonTwoLink='/' buttonTwoText='home'
-          buttonThreeLink='/logout' buttonThreeText='Logout'
-        />
+        <div>
+          <Buttons
+            color='violet' content='Workouts'
+          />
+          <Buttons
+            color='violet' content='Home'
+          />
+          <Buttons
+            color='purple' content='Logout'
+          />
+        </div>
       </div>
     );
   }
