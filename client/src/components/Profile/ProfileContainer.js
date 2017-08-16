@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Item } from 'semantic-ui-react';
 import AppImage from '../AppImage';
-import AppItem from '../AppItem';
-import Buttons from '../Buttons';
+import ProfileButtons from './ProfileButtons';
 import { fetchUser } from '../../actions/index';
 import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
-import wieghts from '../../images/weights-icon.svg';
+import weights from '../../images/weights-icon.svg';
+import WorkoutCard from '../WorkoutCard';
 import './Profile.css';
 
 class ProfileContainer extends Component {
@@ -17,39 +16,26 @@ class ProfileContainer extends Component {
   }
   render() {
     console.log(this.props.user, 'the user');
+    const workoutProps = [{ name: 'bench press', bodyPart: 'chest', id: 1 }, { name: 'Squats', bodyPart: 'Legs', id: 2 }];
+    const userFavs = workoutProps.map((fav) => (
+      <div>
+        <WorkoutCard 
+          image={weights} cardheader={fav.name} cardmeta={fav.bodyPart} 
+          buttontext="Go to Workout" key={fav.id}
+        />
+      </div>
+      
+    ));
     return (
       <div className='profile-container'>
         <div className='profilename'>
           {this.props.user ? this.props.user.username : <Loading />}
         </div>
         <AppImage 
-          imageSrc={selfie} size='medium' className='profileimage'
-          
+          imageSrc={selfie} size='tiny' className='profileimage' shape="circular"
         />
-        <div className='profilebuttons'>
-          <Buttons
-            color='violet' content='Workouts' className='profilebutton'
-          />
-          <Buttons
-            color='violet' content='Home' className='profilebutton'
-          />
-          <Buttons
-            color='purple' content='Logout' className='profilebutton'
-          />
-        </div>
-        <div>
-        <Item.Group>
-        <AppItem 
-          imageSrc={wieghts} itemHeader='workout'
-        />
-        <AppItem 
-          imageSrc={wieghts} itemHeader='workout'
-        />
-        <AppItem 
-          imageSrc={wieghts} itemHeader='workout'
-        />
-      </Item.Group>
-        </div>
+        <ProfileButtons />
+        {userFavs}
       </div>
     );
   }
