@@ -3,7 +3,7 @@ import { Button, Icon } from 'semantic-ui-react';
 
 const AppButton = (props) => (
   <Button 
-    color={props.color} animated={props.animated} 
+    color={props.color} animated={props.animated} onClick={props.onClick}
   >
     <Button.Content visible>
       {props.buttonContent}

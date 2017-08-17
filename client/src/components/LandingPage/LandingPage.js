@@ -15,6 +15,12 @@ class LandingPage extends Component {
     .get('/api/current_user')
     .then(response => { console.log(response.date); })
     .catch(err => { console.log(err); });
+    this.signIn = this.signIn.bind(this);
+  }
+  signIn() {
+    console.log('signing in');
+    axios
+    .get('/auth/google');
   }
   render() {
     return (
@@ -25,10 +31,11 @@ class LandingPage extends Component {
           <AppIcon 
             image={weight} size='big' alt='dumbell Icon' className='appicon'
           />
-          <Link to='/profile'><AppButton
+          <AppButton
             color='blue' animated='fade' className='signin' 
             buttonContent='Sign in with Google' iconName='google'
-          /></Link>
+            onClick={this.signIn}
+          />
       </div>
     );
   }

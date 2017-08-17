@@ -3,7 +3,7 @@ import { Loader } from 'semantic-ui-react';
 
 const Loading = () => (
     <Loader
-    active inline='centered'
+      active inline='centered'
     />
 );
 export default Loading;
