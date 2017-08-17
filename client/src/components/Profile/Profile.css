@@ -1,4 +1,5 @@
 img.ui.image.profileimage {
+  height: 200px;
   margin: 40px auto;
 }
 .profilename {
@@ -7,11 +8,18 @@ img.ui.image.profileimage {
   margin-top: 35px;
 }
 .profilebuttons {
-  width: 100%;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
 }
 .ui.purple.button, .ui.purple.buttons .button {
   width: 32%;
 }
 button.ui.violet.button {
   width: 32%;
+}
+button.ui.red.button {
+  width: 41%;
+  display: block;
+  margin: 24px auto;
 }

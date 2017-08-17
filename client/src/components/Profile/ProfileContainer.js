@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import AppImage from '../AppImage';
 import ProfileButtons from './ProfileButtons';
+import Buttons from '../Buttons';
 import { fetchUser } from '../../actions/index';
 import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
-import weights from '../../images/weights-icon.svg';
-import WorkoutCard from '../WorkoutCard';
+import UserFavorites from './UserFavorites';
+
 import './Profile.css';
 
 class ProfileContainer extends Component {
@@ -16,16 +17,6 @@ class ProfileContainer extends Component {
   }
   render() {
     console.log(this.props.user, 'the user');
-    const workoutProps = [{ name: 'bench press', bodyPart: 'chest', id: 1 }, { name: 'Squats', bodyPart: 'Legs', id: 2 }];
-    const userFavs = workoutProps.map((fav) => (
-      <div>
-        <WorkoutCard 
-          image={weights} cardheader={fav.name} cardmeta={fav.bodyPart} 
-          buttontext="Go to Workout" key={fav.id}
-        />
-      </div>
-      
-    ));
     return (
       <div className='profile-container'>
         <div className='profilename'>
@@ -35,7 +26,11 @@ class ProfileContainer extends Component {
           imageSrc={selfie} size='tiny' className='profileimage' shape="circular"
         />
         <ProfileButtons />
-        {userFavs}
+        <UserFavorites />
+        <Buttons
+          color="red" content="Delete Account" onClick={() => { console.log('clicked'); }}
+          className="logoutBtn"
+        />
       </div>
     );
   }
@@ -44,7 +39,7 @@ function mapStateToProps(state) {
   const { users } = state;
   console.log(state);
   return (
-      users
+    users
   );
 }
 function mapDispatchToProps(dispatch) {

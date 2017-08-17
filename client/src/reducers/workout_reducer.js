@@ -1,25 +1,27 @@
 import { FETCH_WORKOUTS_ERROR, COMPONENT_IS_LOADING, FETCH_WORKOUTS_SUCCESS } from '../actions/const';
+
 const appState = {
-    workouts: [],
-    fetchError: false,
-    isLoading: true,
+  workouts: [],
+  fetchError: false,
+  isLoading: true,
 };
 export default (state = appState, action) => {
-    if (action.type === FETCH_WORKOUTS_ERROR) {
-        const { fetchError } = action;
-        const newState = Object.assign({}, state, { fetchError });
-        return newState;
-    } else if (action.type === FETCH_WORKOUTS_SUCCESS) {
-        const { workouts } = action;
-        const newState = Object.assign({}, state, { workouts });
-        return newState;
-    } else if (action.type === COMPONENT_IS_LOADING) {
-        const { isLoading } = action;
-        const newState = Object.assign({}, state, { isLoading });
-        return newState;
-    }
-    return state;
-}
+  if (action.type === FETCH_WORKOUTS_ERROR) {
+    const { fetchError } = action;
+    const newState = Object.assign({}, state, { fetchError });
+    return newState;
+  } else if (action.type === FETCH_WORKOUTS_SUCCESS) {
+    const { workouts } = action;
+    console.log(workouts);
+    const newState = Object.assign({}, state, { workouts });
+    return newState;
+  } else if (action.type === COMPONENT_IS_LOADING) {
+    const { isLoading } = action;
+    const newState = Object.assign({}, state, { isLoading });
+    return newState;
+  }
+  return state;
+};
 // export function fetchWorkoutsError(state = false, action) {
 //     if (action.type === FETCH_WORKOUTS_ERROR) {
 //         return action.fetchError;

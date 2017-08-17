@@ -61,7 +61,8 @@ export function fetchWorkouts(name) {
         console.log(response.data);
         const payload = response.data;
         dispatch(fetchWorkoutSuccess(payload));
-      });
+      })
+      .catch(() => { dispatch(fetchWorkoutsError(true)); });
   };
 }
 
@@ -78,5 +79,6 @@ export function fetchUser() {
         const payload = response.data;
         dispatch(fetchUserSuccess(payload));
       })
+      .catch(() => { dispatch(fetchUserError(true)); });
   };
 }
