@@ -39,6 +39,16 @@ const Workouts = require('./api/models/workout_model');
 require('./api/routes/workouts_routes')(app, Workouts);
 require('./api/routes/auth_routes')(app);
 
+if (process.env.NODE_ENV === 'production') {
+  // ensure express serves up production assessts 
+  app.use(express.static('client/build'));
+  //express will serve up index.html if it doesnt recongize the route
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
 app.listen(port, () => {
   console.log(`app is listening on port ${port}`);
 });
