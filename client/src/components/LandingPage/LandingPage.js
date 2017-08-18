@@ -26,10 +26,10 @@ class LandingPage extends Component {
           <AppIcon 
             image={weight} size='big' alt='dumbell Icon' className='appicon'
           />
-          <AppButton
+          <Link to='/Profile'><AppButton
             color='blue' animated='fade' className='signin' 
             buttonContent={user ? `Welcome ${user.username}`:'Sign in with Google'} iconName='google'
-          />
+          /></Link>
       </div>
     );
   }
