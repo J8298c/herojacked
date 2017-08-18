@@ -21,13 +21,13 @@ class WorkoutsContainer extends Component {
       workoutcard = <Loading />;
     } else {
       workoutcard = workouts.map((workout) => (
-          <WorkoutCard
-            cardheader={workout.name}
-            image={weights}
-            cardmeta={workout.bodyPart}
-            buttontext="Go to workout"
-            key={workout._id}
-          />
+        <WorkoutCard
+          cardheader={workout.name}
+          image={weights}
+          cardmeta={workout.bodyPart}
+          buttontext="Go to workout"
+          key={workout._id}
+        />
       ));
     }
     return (
@@ -35,7 +35,7 @@ class WorkoutsContainer extends Component {
         <Card.Group className="workoutcards">
           {workoutcard}
         </Card.Group>
-        </div>
+      </div>
     );
   }
 }

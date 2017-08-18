@@ -44,6 +44,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   //express will serve up index.html if it doesnt recongize the route
   const path = require('path');
+  console.log(path);
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import { fetchUser } from '../../actions/index';
 import AppTitle from '../AppTitle';
 import AppIcon from '../AppIcon';
 import AppButton from '../AppButton';
@@ -8,21 +11,13 @@ import './landingpage.css';
 import weight from '../../images/weights-icon.svg';
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { user: null };
-    axios
-    .get('/api/current_user')
-    .then(response => { console.log(response.date); })
-    .catch(err => { console.log(err); });
-    this.signIn = this.signIn.bind(this);
-  }
-  signIn() {
-    console.log('signing in');
-    axios
-    .get('/auth/google');
+  componentDidMount() {
+    this.props.fetchUser();
   }
   render() {
+    const {user} = this.props.users;
+    console.log(user);
+    console.log(this.props.users);
     return (
       <div className="landingpagecontainer">
           <AppTitle 
@@ -33,11 +28,21 @@ class LandingPage extends Component {
           />
           <AppButton
             color='blue' animated='fade' className='signin' 
-            buttonContent='Sign in with Google' iconName='google'
-            onClick={this.signIn}
+            buttonContent={user ? `Welcome ${user.username}`:'Sign in with Google'} iconName='google'
           />
       </div>
     );
   }
 }
-export default LandingPage;
+function mapStateToProps(state) {
+  console.log(state, 'the state');
+  const { users } = state;
+  console.log(users);
+  return {
+    users,
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators( { fetchUser }, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
