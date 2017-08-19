@@ -22,12 +22,19 @@ passport.use(
       callbackURL: '/auth/google/callback',
       proxy: true,
     },
-    async (accessToken, refreshToken, profile, done) => {
-      const existingUser = await User.findOne({ googleId: profile.id });
-      if (existingUser) {
-        return done(null, existingUser);
-      }
-      const user = await new User({ googleId: profile.id, username: profile.displayName, gender: profile.gender }).save();
-      done(null, user);
+    (accesToken, refreshToken, profile, done) => {
+      User.findOne({ googleId: profile.id })
+        .then((existingUser) => {
+          if (existingUser) {
+            done(null, existingUser);
+          } else {
+            new User({
+              googleId: profile.id,
+              username: profile.displayName,
+              gender: profile.gender,
+            }).save()
+              .then(user => done(null, user));
+          }
+        });
     }
   ));
