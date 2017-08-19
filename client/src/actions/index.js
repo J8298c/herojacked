@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_WORKOUTS_ERROR, FETCH_WORKOUTS_SUCCESS, COMPONENT_IS_LOADING, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from './const';
+import { FETCH_WORKOUTS_ERROR, FETCH_WORKOUTS_SUCCESS, COMPONENT_IS_LOADING, FETCH_USER_SUCCESS, FETCH_USER_ERROR, SIGNIN_SUCCESS, SIGNIN_ERROR } from './const';
 
 export function fetchWorkoutSuccess(workouts) {
   const action = {
@@ -37,6 +37,22 @@ export function fetchUserError(bool) {
   const action = {
     type: FETCH_USER_ERROR,
     fetchError: bool,
+  };
+  return action;
+}
+
+export function signInSuccess(user) {
+  const action = {
+    type: SIGNIN_SUCCESS,
+    user,
+  };
+  return action;
+}
+
+export function signInError(bool) {
+  const action = {
+    type: SIGNIN_ERROR,
+    signInError: bool,
   };
   return action;
 }

@@ -10,11 +10,11 @@ import './landingpage.css';
 import weight from '../../images/weights-icon.svg';
 
 class LandingPage extends Component {
-  componentDidMount() {
-    /*
-      need to add this to routes component
-      let it handle entrance to app
-       */
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+    };
     this.props.fetchUser();
   }
   render() {
@@ -29,7 +29,7 @@ class LandingPage extends Component {
         <AppIcon 
           image={weight} size='big' alt='dumbell Icon' className='appicon'
         />
-        <Link to='/Profile'><AppButton
+        <Link to="/auth/google"><AppButton
           color='blue' animated='fade' className='signin' 
           buttonContent={user ? `Welcome ${user.username}` : 'Sign in with Google'} iconName='google'
         /></Link>
