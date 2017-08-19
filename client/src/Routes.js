@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchUser } from './actions/index';
 import LandingPage from './components/LandingPage/LandingPage';
 import WorkoutContainer from './components/Workout/WorkoutContainer';
 import WorkoutsContainer from './components/Workouts/WorkoutsContainer';
@@ -15,6 +18,10 @@ import CreateWorkoutContainer from './components/CreateWorkout/CreateWorkoutCont
  */
 class Routes extends Component {
   render() {
+    console.log('componenet routes mounted');
+    if (this.props.users) {
+      console.log(this.props, 'all the props');
+    }
     return (
       <Router>
         <div>
@@ -28,5 +35,15 @@ class Routes extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  const { users } = state;
+  console.log(users, 'the users state OBJ');
+  return {
+    users,
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchUser }, dispatch);
+}
 
-export default Routes;
+export default connect(mapStateToProps, null)(Routes);

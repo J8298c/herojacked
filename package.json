@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Julio Mojica",
   "license": "MIT",
+  "engines": {
+    "node": "8.2.1"
+  },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.17.2",
