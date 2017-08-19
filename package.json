@@ -36,6 +36,6 @@
     "test": "mocha",
     "client": "npm run start --prefix client",
     "server": "nodemon app.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
