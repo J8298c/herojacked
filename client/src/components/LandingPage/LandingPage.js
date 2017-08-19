@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 import { fetchUser } from '../../actions/index';
 import AppTitle from '../AppTitle';
 import AppIcon from '../AppIcon';
@@ -9,13 +8,12 @@ import AppButton from '../AppButton';
 import './landingpage.css';
 import weight from '../../images/weights-icon.svg';
 
-class LandingPage extends Component {
+export class LandingPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: null,
     };
-    this.props.fetchUser();
   }
   render() {
     const { user } = this.props.users;
@@ -29,10 +27,10 @@ class LandingPage extends Component {
         <AppIcon 
           image={weight} size='big' alt='dumbell Icon' className='appicon'
         />
-        <Link to={user ? '/profile' : '/auth/google'}><AppButton
+        <a href="/auth/google"><AppButton
           color='blue' animated='fade' className='signin' 
           buttonContent={user ? `Welcome ${user.username}` : 'Sign in with Google'} iconName='google'
-        /></Link>
+        /></a>
       </div>
     );
   }

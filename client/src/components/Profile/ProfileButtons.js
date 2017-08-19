@@ -10,9 +10,9 @@ const ProfileButtons = () => (
     <Buttons
       color='violet' content='Home' className='profilebutton'
     />
-    <Buttons
+    <a href="/api/logout"><Buttons
       color='purple' content='Logout' className='profilebutton'
-    />
+    /></a>
   </div>
 );
 export default ProfileButtons;
