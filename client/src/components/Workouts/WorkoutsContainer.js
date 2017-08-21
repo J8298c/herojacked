@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import WorkoutCard from '../WorkoutCard';
 import weights from '../../images/weights-icon.svg';
 import { fetchWorkouts } from '../../actions/index';
 import Loading from '../Loader';
+import Buttons from '../Buttons';
 import './workouts.css';
 
 class WorkoutsContainer extends Component {
@@ -35,6 +37,9 @@ class WorkoutsContainer extends Component {
         <Card.Group className="workoutcards">
           {workoutcard}
         </Card.Group>
+        <Link to="create_workout"><Buttons
+          color="blue" content="Add Workout"
+        /></Link>
       </div>
     );
   }
