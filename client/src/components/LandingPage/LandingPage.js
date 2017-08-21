@@ -1,49 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchUser } from '../../actions/index';
+import React from 'react';
 import AppTitle from '../AppTitle';
-import AppIcon from '../AppIcon';
-import AppButton from '../AppButton';
 import './landingpage.css';
-import weight from '../../images/weights-icon.svg';
+import dumbells from '../../images/weights-icon.svg';
+import AppImage from '../AppImage';
+import AppButton from '../AppButton';
 
-export class LandingPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null,
-    };
-  }
-  render() {
-    const { user } = this.props.users;
-    console.log(user);
-    console.log(this.props.users);
-    return (
-      <div className="landingpagecontainer">
-        <AppTitle 
-          size='huge' headerText='ThunderHammer' className='app-title'
-        />
-        <AppIcon 
-          image={weight} size='big' alt='dumbell Icon' className='appicon'
-        />
-        <a href="/auth/google"><AppButton
-          color='blue' animated='fade' className='signin' 
-          buttonContent={user ? `Welcome ${user.username}` : 'Sign in with Google'} iconName='google'
-        /></a>
-      </div>
-    );
-  }
-}
-function mapStateToProps(state) {
-  console.log(state, 'the state');
-  const { users } = state;
-  console.log(users);
-  return {
-    users,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchUser }, dispatch);
-}
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+const LandingPage = () => (
+  <div className='landingpagecontainer'>
+    <AppTitle
+      size='huge' headerText='HeroJacked' className='header'
+    />
+    <AppImage
+      imageSrc={dumbells} imageSize='big' className='image' alt='icon of dumbell'
+    />
+    <a href='/auth/google'><AppButton
+      buttonContent='Sign in with Google' iconName='google'
+      color='blue' animated='fade' className='signin'
+    /></a>
+  </div>
+);
+export default LandingPage;

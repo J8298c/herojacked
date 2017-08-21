@@ -2,11 +2,11 @@ import React from 'react';
 import { Header } from 'semantic-ui-react';
 
 const AppHeader = (props) => (
-    <Header
-      size={props.size}
-    >
+  <Header
+    size={props.size}
+  >
     {props.headerText}
-    </Header>
+  </Header>
 );
 export default AppHeader;
 
