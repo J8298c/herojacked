@@ -8,7 +8,7 @@ import WorkoutContainer from './components/Workout/WorkoutContainer';
 import WorkoutsContainer from './components/Workouts/WorkoutsContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import CreateWorkoutContainer from './components/CreateWorkout/CreateWorkoutContainer';
-
+import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen';
 /*
   if (user) {
     browserHistory.push('/restaurants');
@@ -30,6 +30,7 @@ class Routes extends Component {
           <Route path='/workout/:name' component={WorkoutContainer} />
           <Route path='/profile' component={ProfileContainer} />
           <Route path='/create_workout' component={CreateWorkoutContainer} />
+          <Route path='/welcome' component={WelcomeScreen} />
         </div>
       </Router>
     );

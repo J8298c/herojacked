@@ -1,0 +1,22 @@
+.welcomeImageContainer{
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(0deg,rgba(49, 62, 82, 0.9),rgba(49, 62, 82, 0.9)), url('../../images/brooklyn_bridge.jpg') center no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid limegreen;
+}
+.welcomescreenitems {
+    margin-top: 10%;
+}
+.items {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    background-color: limegreen;
+    border: 1px solid limegreen;
+    margin-left: 22px;
+    padding: 22px;
+}
+i.user.icon {
+    font-size: 44px;
+}
