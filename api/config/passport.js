@@ -28,10 +28,12 @@ passport.use(
           if (existingUser) {
             done(null, existingUser);
           } else {
+            console.log(profile, 'the user profile');
             new User({
               googleId: profile.id,
               username: profile.displayName,
               gender: profile.gender,
+              profileImage: profile.image,
             }).save()
               .then(user => done(null, user));
           }

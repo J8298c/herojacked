@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Icon } from 'semantic-ui-react';
 import WelcomeScreenItem from './WelcomeScreenItem';
 import './welcomescreen.css';
 
@@ -9,6 +10,15 @@ class WelcomeScreen extends Component {
                 <div className='welcomeImageContainer' />
                 <WelcomeScreenItem
                   linkTo='/profile' iconName='user' iconText='Profile'
+                />
+                <WelcomeScreenItem
+                  linkTo='/allworkouts' iconName='superpowers' iconText='Workouts'
+                />
+                <WelcomeScreenItem
+                  linkTo='/hero' iconName='flask' iconText='Hero'
+                />
+                <WelcomeScreenItem
+                  linkTo='/hero' iconName='flask' iconText='Hero'
                 />
             </div>
     );
