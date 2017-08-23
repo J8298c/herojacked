@@ -6,7 +6,7 @@ import AppIcon from './AppIcon';
 
 describe('<AppIcon />', () => {
   it('should render the appIcon component', () => {
-    const appIcon = mount(<AppIcon />); //might need props
+    const appIcon = mount(<AppIcon />); 
     expect(appIcon.find(Image)).to.have.length(1);
   });
 });
