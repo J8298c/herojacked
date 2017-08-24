@@ -1,6 +1,7 @@
 .welcomeImageContainer{
     width: 100%;
     height: 200px;
+    padding: 14%;
     background: linear-gradient(0deg,rgba(49, 62, 82, 0.9),rgba(49, 62, 82, 0.9)), url('../../images/brooklyn_bridge.jpg') center no-repeat;
     background-size: cover;
     border-bottom: 1px solid limegreen;
