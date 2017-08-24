@@ -9,13 +9,17 @@ class WelcomeScreen extends Component {
     this.state = {
       query: '',
     };
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+  handleInputChange(event) {
+    this.setState({ query: event.target.value });
+    console.log(this.state);
   }
   render() {
-    console.log(this.state, 'the state');
     return (
             <div>
                 <div className='welcomeImageContainer'>
-                  <AppSearch onInputChange={(e) => { this.setState({ query: e.target.value }); }} />
+                  <AppSearch onInputChange={this.handleInputChange} />
                   </div>
                 <WelcomeScreenItem
                   linkTo='/profile' iconName='user' iconText='Profile'
