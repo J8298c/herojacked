@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AppSearch from '../AppSearch';
+import AppSearch from '../Search/AppSearch';
 import WelcomeScreenItem from './WelcomeScreenItem';
 import './welcomescreen.css';
 
@@ -19,7 +19,7 @@ class WelcomeScreen extends Component {
     return (
             <div>
                 <div className='welcomeImageContainer'>
-                  <AppSearch onInputChange={this.handleInputChange} />
+                  <AppSearch />
                   </div>
                 <WelcomeScreenItem
                   linkTo='/profile' iconName='user' iconText='Profile'
