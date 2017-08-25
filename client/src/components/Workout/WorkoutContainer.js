@@ -1,60 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import pullupsImg from '../../images/pullup.svg';
-import userImg from '../../images/starlord.jpg';
-import FeedCard from '../FeedCard';
+import { bindActionCreators} from 'redux';
 import { fetchWorkouts } from '../../actions/index';
-import WorkoutView from './WorkoutView';
-import Loading from '../Loader';
-import './workout.css';
 
 class WorkoutContainer extends Component {
-  componentDidMount() {
+  componentDidMount(props) {
     const { name } = this.props.match.params;
+    console.log(name, 'the workout name to pass to fetchWorkouts');
     this.props.fetchWorkouts(name);
   }
   render() {
-    let workoutView;
-    const { workouts, isLoading } = this.props;
-    console.log(workouts);
-    console.log(isLoading);
-    if (isLoading) {
-      workoutView = <Loading />;
-    } else {
-      workoutView = workouts.map((workout) => (
-        <WorkoutView
-          img={pullupsImg}
-          workoutname={workout.name}
-          workoutreps={workout.reps}
-          workoutsets={workout.sets}
-        />
-      ));
-      console.log(workoutView);
-    }
-
-    return (
-      <div className="workoutcontainer">
-        {workoutView}
-        <FeedCard
-          cardheader="Recent Activity"
-          feedimg={userImg}
-          feedcontent="3 days ago"
-          feedsummary="You added StarLord workout to your current Workout."
-        />
+    return(
+      <div>
+        <h1>The WorkoutContainer</h1>
       </div>
-    );
+    )
   }
 }
+
 function mapStateToProps(state) {
-  const { workouts, isLoading, fetchError } = state.workouts;
-  console.log(workouts, isLoading, fetchError);
+  console.log(state);
   return {
-    workouts,
-    isLoading,
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchWorkouts }, dispatch);
+    state,
+  }
+} 
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({fetchWorkouts}, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(WorkoutContainer);

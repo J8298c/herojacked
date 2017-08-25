@@ -78,7 +78,6 @@ export function fetchWorkouts(name) {
         const payload = response.data;
         dispatch(fetchWorkoutSuccess(payload));
       })
-      .catch(() => { dispatch(fetchWorkoutsError(true)); });
   };
 }
 
