@@ -6,35 +6,36 @@
 import React, { Component } from 'react';
 import { Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
-import { fetchWorkouts } from "../../actions/index"
+import { fetchWorkouts } from '../../actions/index';
 import Inputs from '../Input';
 import Buttons from '../Buttons';
-
 
 class AppSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {query: ''};
+    this.state = { query: '' };
     this.onSearchSubmit = this.onSearchSubmit.bind(this);
   }
   onSearchSubmit(event) {
     event.preventDefault();
-    this.props.fetchWorkouts(this.state);
-    console.log(this.state, 'the state to query db')
+    this.props.fetchWorkouts(this.state.query);
+    console.log(this.state.query, 'the state to query db');
   }
 
   render() {
     return (
-        <Form>
-            <Inputs
-              type="text" placeHolder="Search Workouts" className="welcome-search"
-              onChange={event => this.setState({query: event.target.value})}
-            />
-          <Buttons
-            color="green" onClick={this.onSearchSubmit} content="Submit"
-          />
-        </Form>
+      <Form>
+        <Inputs
+          type="text" placeHolder="Search Workouts" className="welcome-search"
+          onChange={event => this.setState({ query: event.target.value })}
+        />
+        <Link to={`/workout/${this.state.query}`}><Buttons
+          color="green" content="Submit"
+        />
+        </Link>
+      </Form>
     );
   }
 }

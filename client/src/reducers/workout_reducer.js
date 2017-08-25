@@ -12,6 +12,7 @@ export default (state = appState, action) => {
     return newState;
   } else if (action.type === FETCH_WORKOUTS_SUCCESS) {
     const { workouts } = action;
+    console.log(workouts, 'the name pf the workouts')
     console.log(workouts);
     const newState = Object.assign({}, state, { workouts });
     return newState;
