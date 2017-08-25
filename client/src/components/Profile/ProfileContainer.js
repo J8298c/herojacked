@@ -7,7 +7,7 @@ import Buttons from '../Buttons';
 import { fetchUser } from '../../actions/index';
 import Loading from '../Loader';
 import selfie from '../../images/selfie.jpg';
-import UserFavorites from './UserFavorites';
+import UserActivityContainer from '../UserActivity/UserActivityContainer';
 
 import './Profile.css';
 
@@ -16,7 +16,6 @@ class ProfileContainer extends Component {
     this.props.fetchUser();
   }
   render() {
-    console.log(this.props.user, 'the user');
     return (
       <div className='profile-container'>
         <div className='profilename'>
@@ -26,7 +25,7 @@ class ProfileContainer extends Component {
           imageSrc={selfie} size='tiny' className='profileimage' shape="circular"
         />
         <ProfileButtons />
-        <UserFavorites />
+        <UserActivityContainer />
         <Buttons
           color="red" content="Delete Account" onClick={() => { console.log('clicked'); }}
           className="logoutBtn"
